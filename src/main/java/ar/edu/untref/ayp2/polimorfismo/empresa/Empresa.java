@@ -4,6 +4,6 @@ public class Empresa {
 
 	@Override
 	public String toString() {
-		return "";
+		return "Cantidad de Empleados: 0.";
 	}
 }
