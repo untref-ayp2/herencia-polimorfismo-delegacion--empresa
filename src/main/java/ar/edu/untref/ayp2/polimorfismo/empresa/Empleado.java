@@ -2,9 +2,9 @@ package ar.edu.untref.ayp2.polimorfismo.empresa;
 
 public class Empleado {
 
-	private String nombre;
-	private String categoria;
-	private String planta;
+	protected String nombre;
+	protected String categoria;
+	protected String planta;
 
 	public Empleado(String nombre, String categoria, String planta) {
 		this.nombre = nombre;

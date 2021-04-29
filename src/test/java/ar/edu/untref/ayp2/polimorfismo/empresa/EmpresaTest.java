@@ -29,12 +29,13 @@ public class EmpresaTest {
 
 	// Acá empieza el verdadero trabajo
 	@Test
-	public void deboPoderMostrarUnaEmpresaConUnEmpleadoSinCategoriaDePlantaPermanente() {
+	public void deboPoderMostrarUnaEmpresaConUnEmpleadoSinCategoriaDePlantaPermanenteJornadaCompleta() {
 		Empresa miEmpresa = new Empresa();
-		Empleado miEmpleado = new SinCategoria("Juan De Los Palotes", "Sin Categoría", "Planta Permanente");
+		Empleado miEmpleado = new SinCategoria("Juan De Los Palotes", "Sin Categoría", "Planta Permanente",
+				"Jornada Completa");
 		miEmpresa.contratar(miEmpleado);
 		String mostrar = "Cantidad de Empleados: 1." + "\n"
-				+ "1. Juan De Los Palotes (Sin Categoría, Planta Permanente)";
+				+ "1. Juan De Los Palotes (Sin Categoría, Planta Permanente, Jornada Completa)";
 		// System.out.println(miEmpresa.toString());
 		assertEquals(mostrar, miEmpresa.toString());
 	}
@@ -52,11 +53,13 @@ public class EmpresaTest {
 
 	// Test de regresión: verificamos que todos los demás casos posibles lo sean
 	@Test
-	public void deboPoderMostrarUnaEmpresaConUnEmpleadoSinCategoriaContratado() {
+	public void deboPoderMostrarUnaEmpresaConUnEmpleadoSinCategoriaContratadoJornadaCompleta() {
 		Empresa miEmpresa = new Empresa();
-		Empleado miEmpleado = new SinCategoria("Juan De Los Palotes", "Sin Categoría", "Contratado");
+		Empleado miEmpleado = new SinCategoria("Juan De Los Palotes", "Sin Categoría", "Contratado",
+				"Jornada Completa");
 		miEmpresa.contratar(miEmpleado);
-		String mostrar = "Cantidad de Empleados: 1." + "\n" + "1. Juan De Los Palotes (Sin Categoría, Contratado)";
+		String mostrar = "Cantidad de Empleados: 1." + "\n"
+				+ "1. Juan De Los Palotes (Sin Categoría, Contratado, Jornada Completa)";
 		// System.out.println(miEmpresa.toString());
 		assertEquals(mostrar, miEmpresa.toString());
 	}
