@@ -18,4 +18,10 @@ public class EmpresaTest {
 		assertNotNull(miEmpresa);
 	}
 
+	@Test
+	public void deboPoderMostrarUnaEmpresaSinEmpleados() {
+		Empresa miEmpresa = new Empresa();
+		assertTrue(miEmpresa.toString().isBlank());
+	}
+
 }
