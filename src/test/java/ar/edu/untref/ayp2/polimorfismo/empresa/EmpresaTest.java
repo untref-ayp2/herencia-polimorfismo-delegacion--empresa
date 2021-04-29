@@ -31,7 +31,7 @@ public class EmpresaTest {
 	@Test
 	public void deboPoderMostrarUnaEmpresaConUnEmpleadoSinCategoriaDePlantaPermanente() {
 		Empresa miEmpresa = new Empresa();
-		Empleado miEmpleado = new Empleado("Juan De Los Palotes", "Sin Categoría", "Planta Permanente");
+		Empleado miEmpleado = new SinCategoria("Juan De Los Palotes", "Sin Categoría", "Planta Permanente");
 		miEmpresa.contratar(miEmpleado);
 		String mostrar = "Cantidad de Empleados: 1." + "\n"
 				+ "1. Juan De Los Palotes (Sin Categoría, Planta Permanente)";
@@ -43,7 +43,7 @@ public class EmpresaTest {
 	@Test
 	public void deboPoderMostrarUnaEmpresaConUnGerenteDePlantaPermanente() {
 		Empresa miEmpresa = new Empresa();
-		Empleado miEmpleado = new Empleado("Ana De la Cumbre", "Gerente", "Planta Permanente");
+		Empleado miEmpleado = new Gerente("Ana De la Cumbre", "Gerente", "Planta Permanente");
 		miEmpresa.contratar(miEmpleado);
 		String mostrar = "Cantidad de Empleados: 1." + "\n" + "1. Ana De la Cumbre (Gerente, Planta Permanente)";
 		// System.out.println(miEmpresa.toString());
@@ -54,7 +54,7 @@ public class EmpresaTest {
 	@Test
 	public void deboPoderMostrarUnaEmpresaConUnEmpleadoSinCategoriaContratado() {
 		Empresa miEmpresa = new Empresa();
-		Empleado miEmpleado = new Empleado("Juan De Los Palotes", "Sin Categoría", "Contratado");
+		Empleado miEmpleado = new SinCategoria("Juan De Los Palotes", "Sin Categoría", "Contratado");
 		miEmpresa.contratar(miEmpleado);
 		String mostrar = "Cantidad de Empleados: 1." + "\n" + "1. Juan De Los Palotes (Sin Categoría, Contratado)";
 		// System.out.println(miEmpresa.toString());
