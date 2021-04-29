@@ -39,4 +39,26 @@ public class EmpresaTest {
 		assertEquals(mostrar, miEmpresa.toString());
 	}
 
+	// Test de regresión: verificamos que todos los demás casos posibles lo sean
+	@Test
+	public void deboPoderMostrarUnaEmpresaConUnGerenteDePlantaPermanente() {
+		Empresa miEmpresa = new Empresa();
+		Empleado miEmpleado = new Empleado("Ana De la Cumbre", "Gerente", "Planta Permanente");
+		miEmpresa.contratar(miEmpleado);
+		String mostrar = "Cantidad de Empleados: 1." + "\n" + "1. Ana De la Cumbre (Gerente, Planta Permanente)";
+		// System.out.println(miEmpresa.toString());
+		assertEquals(mostrar, miEmpresa.toString());
+	}
+
+	// Test de regresión: verificamos que todos los demás casos posibles lo sean
+	@Test
+	public void deboPoderMostrarUnaEmpresaConUnEmpleadoSinCategoriaContratado() {
+		Empresa miEmpresa = new Empresa();
+		Empleado miEmpleado = new Empleado("Juan De Los Palotes", "Sin Categoría", "Contratado");
+		miEmpresa.contratar(miEmpleado);
+		String mostrar = "Cantidad de Empleados: 1." + "\n" + "1. Juan De Los Palotes (Sin Categoría, Contratado)";
+		// System.out.println(miEmpresa.toString());
+		assertEquals(mostrar, miEmpresa.toString());
+	}
+
 }
