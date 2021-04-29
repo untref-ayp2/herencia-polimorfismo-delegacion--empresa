@@ -64,4 +64,31 @@ public class EmpresaTest {
 		assertEquals(mostrar, miEmpresa.toString());
 	}
 
+	// Test de regresión (bis): verificamos que todos los nuevos casos posibles lo
+	// sean
+	@Test
+	public void deboPoderMostrarUnaEmpresaConUnEmpleadoSinCategoriaContratadoMediaJornada() {
+		Empresa miEmpresa = new Empresa();
+		Empleado miEmpleado = new SinCategoria("Juan De Los Palotes", "Sin Categoría", "Contratado", "Media Jornada");
+		miEmpresa.contratar(miEmpleado);
+		String mostrar = "Cantidad de Empleados: 1." + "\n"
+				+ "1. Juan De Los Palotes (Sin Categoría, Contratado, Media Jornada)";
+		// System.out.println(miEmpresa.toString());
+		assertEquals(mostrar, miEmpresa.toString());
+	}
+
+	// Test de regresión (bis): verificamos que todos los nuevos casos posibles lo
+	// sean
+	@Test
+	public void deboPoderMostrarUnaEmpresaConUnEmpleadoSinCategoriaDePlantaPermanenteMediaJornada() {
+		Empresa miEmpresa = new Empresa();
+		Empleado miEmpleado = new SinCategoria("Juan De Los Palotes", "Sin Categoría", "Planta Permanente",
+				"Media Jornada");
+		miEmpresa.contratar(miEmpleado);
+		String mostrar = "Cantidad de Empleados: 1." + "\n"
+				+ "1. Juan De Los Palotes (Sin Categoría, Planta Permanente, Media Jornada)";
+		// System.out.println(miEmpresa.toString());
+		assertEquals(mostrar, miEmpresa.toString());
+	}
+
 }
