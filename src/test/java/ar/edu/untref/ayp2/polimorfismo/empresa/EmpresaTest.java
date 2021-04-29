@@ -21,7 +21,9 @@ public class EmpresaTest {
 	@Test
 	public void deboPoderMostrarUnaEmpresaSinEmpleados() {
 		Empresa miEmpresa = new Empresa();
-		assertTrue(miEmpresa.toString().isBlank());
+		String mostrar = "Cantidad de Empleados: 0.";
+
+		assertTrue(miEmpresa.toString().equals(mostrar));
 	}
 
 }
