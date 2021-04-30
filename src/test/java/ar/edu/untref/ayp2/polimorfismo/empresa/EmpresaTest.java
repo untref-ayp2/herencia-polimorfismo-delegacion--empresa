@@ -31,7 +31,7 @@ public class EmpresaTest {
 	@Test
 	public void deboPoderMostrarUnaEmpresaConUnEmpleadeSinCategoriaDePlantaPermanenteJornadaCompleta() {
 		Empresa miEmpresa = new Empresa();
-		EmpleadeAbstracte miEmpleade = new Empleade("Juan De Los Palotes", "Planta Permanente", "Jornada Completa");
+		EmpleadeAbstracte miEmpleade = new Empleade("Juan De Los Palotes", Planta.PERMANENTE, "Jornada Completa");
 		miEmpresa.contratar(miEmpleade);
 		String mostrar = "Cantidad de Empleades: 1." + "\n"
 				+ "1. Juan De Los Palotes (Sin Categoría, Planta Permanente, Jornada Completa)";
@@ -43,7 +43,7 @@ public class EmpresaTest {
 	@Test
 	public void deboPoderMostrarUnaEmpresaConUnGerenteDePlantaPermanente() {
 		Empresa miEmpresa = new Empresa();
-		EmpleadeAbstracte miEmpleade = new Gerente("Ana De la Cumbre", "Planta Permanente");
+		EmpleadeAbstracte miEmpleade = new Gerente("Ana De la Cumbre");
 		miEmpresa.contratar(miEmpleade);
 		String mostrar = "Cantidad de Empleades: 1." + "\n" + "1. Ana De la Cumbre (Gerente, Planta Permanente)";
 		// System.out.println(miEmpresa.toString());
@@ -54,10 +54,10 @@ public class EmpresaTest {
 	@Test
 	public void deboPoderMostrarUnaEmpresaConUnEmpleadeSinCategoriaContratadoJornadaCompleta() {
 		Empresa miEmpresa = new Empresa();
-		EmpleadeAbstracte miEmpleade = new Empleade("Juan De Los Palotes", "Contratado", "Jornada Completa");
+		EmpleadeAbstracte miEmpleade = new Empleade("Juan De Los Palotes", Planta.TEMPORARIA, "Jornada Completa");
 		miEmpresa.contratar(miEmpleade);
 		String mostrar = "Cantidad de Empleades: 1." + "\n"
-				+ "1. Juan De Los Palotes (Sin Categoría, Contratado, Jornada Completa)";
+				+ "1. Juan De Los Palotes (Sin Categoría, Planta Temporaria, Jornada Completa)";
 		// System.out.println(miEmpresa.toString());
 		assertEquals(mostrar, miEmpresa.toString());
 	}
@@ -67,10 +67,10 @@ public class EmpresaTest {
 	@Test
 	public void deboPoderMostrarUnaEmpresaConUnEmpleadeSinCategoriaContratadoMediaJornada() {
 		Empresa miEmpresa = new Empresa();
-		EmpleadeAbstracte miEmpleade = new Empleade("Juan De Los Palotes", "Contratado", "Media Jornada");
+		EmpleadeAbstracte miEmpleade = new Empleade("Juan De Los Palotes", Planta.TEMPORARIA, "Media Jornada");
 		miEmpresa.contratar(miEmpleade);
 		String mostrar = "Cantidad de Empleades: 1." + "\n"
-				+ "1. Juan De Los Palotes (Sin Categoría, Contratado, Media Jornada)";
+				+ "1. Juan De Los Palotes (Sin Categoría, Planta Temporaria, Media Jornada)";
 		// System.out.println(miEmpresa.toString());
 		assertEquals(mostrar, miEmpresa.toString());
 	}
@@ -80,7 +80,7 @@ public class EmpresaTest {
 	@Test
 	public void deboPoderMostrarUnaEmpresaConUnEmpleadeSinCategoriaDePlantaPermanenteMediaJornada() {
 		Empresa miEmpresa = new Empresa();
-		EmpleadeAbstracte miEmpleade = new Empleade("Juan De Los Palotes", "Planta Permanente", "Media Jornada");
+		EmpleadeAbstracte miEmpleade = new Empleade("Juan De Los Palotes", Planta.PERMANENTE, "Media Jornada");
 		miEmpresa.contratar(miEmpleade);
 		String mostrar = "Cantidad de Empleades: 1." + "\n"
 				+ "1. Juan De Los Palotes (Sin Categoría, Planta Permanente, Media Jornada)";
@@ -92,7 +92,7 @@ public class EmpresaTest {
 	@Test
 	public void categoriaDeEmpleadeSoloPuedeSerSinCantegoria() {
 
-		EmpleadeAbstracte empleadeValideSinCategoria = new Empleade("Juan De Los Palotes", "Planta Permanente",
+		EmpleadeAbstracte empleadeValideSinCategoria = new Empleade("Juan De Los Palotes", Planta.PERMANENTE,
 				"Jornada Completa");
 
 		assertEquals(Categoria.SIN_CATEGORIA, empleadeValideSinCategoria.obtCategoria());
@@ -102,9 +102,18 @@ public class EmpresaTest {
 	@Test
 	public void categoriaDeGerenteSoloPuedeSerGerente() {
 
-		EmpleadeAbstracte empleadeValideGerente = new Gerente("Ana De la Cumbre", "Planta Permanente");
+		EmpleadeAbstracte empleadeValideGerente = new Gerente("Ana De la Cumbre");
 
 		assertEquals(Categoria.GERENTE, empleadeValideGerente.obtCategoria());
+	}
+
+	// Validación de datos (bis)
+	@Test
+	public void plantaDeGerenteSoloPuedeSerPermanente() {
+
+		EmpleadeAbstracte empleadeValideGerente = new Gerente("Ana De la Cumbre");
+
+		assertEquals(Planta.PERMANENTE, empleadeValideGerente.obtPlanta());
 	}
 
 }
