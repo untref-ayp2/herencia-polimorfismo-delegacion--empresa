@@ -1,6 +1,6 @@
 package ar.edu.untref.ayp2.polimorfismo.empresa;
 
-public class SinCategoria extends Empleado {
+public class SinCategoria extends EmpleadeAbstracte {
 	private String jornada;
 
 	public SinCategoria(String nombre, String categoria, String planta, String jornada) {

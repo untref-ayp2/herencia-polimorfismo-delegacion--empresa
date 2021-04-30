@@ -4,13 +4,13 @@ import java.util.LinkedList;
 
 public class Empresa {
 
-	private LinkedList<Empleado> empleados = new LinkedList<>();
+	private LinkedList<EmpleadeAbstracte> empleados = new LinkedList<>();
 
 	@Override
 	public String toString() {
 		String todo = "Cantidad de Empleados: " + empleados.size() + ".";
 
-		for (Empleado e : empleados) {
+		for (EmpleadeAbstracte e : empleados) {
 			todo = todo + "\n" + (empleados.indexOf(e) + 1) + ". " + e.toString();
 		}
 
@@ -23,7 +23,7 @@ public class Empresa {
 	}
 
 	// delegamos la responsabilidad de contratar a 'empleados'
-	public void contratar(Empleado miEmpleado) {
+	public void contratar(EmpleadeAbstracte miEmpleado) {
 		empleados.add(miEmpleado);
 	}
 
