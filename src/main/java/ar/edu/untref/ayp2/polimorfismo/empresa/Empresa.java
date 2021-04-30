@@ -8,7 +8,7 @@ public class Empresa {
 
 	@Override
 	public String toString() {
-		String todo = "Cantidad de Empleados: " + empleados.size() + ".";
+		String todo = "Cantidad de Empleades: " + empleados.size() + ".";
 
 		for (EmpleadeAbstracte e : empleados) {
 			todo = todo + "\n" + (empleados.indexOf(e) + 1) + ". " + e.toString();
