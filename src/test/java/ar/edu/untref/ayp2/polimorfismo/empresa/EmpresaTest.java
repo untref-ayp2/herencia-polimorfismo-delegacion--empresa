@@ -14,27 +14,27 @@ public class EmpresaTest {
 	}
 
 	@Test
-	public void deboPoderCrearUnaEmpresaSinEmpleados() {
+	public void deboPoderCrearUnaEmpresaSinEmpleades() {
 		Empresa miEmpresa = new Empresa();
 		assertNotNull(miEmpresa);
 	}
 
 	@Test
-	public void deboPoderMostrarUnaEmpresaSinEmpleados() {
+	public void deboPoderMostrarUnaEmpresaSinEmpleades() {
 		Empresa miEmpresa = new Empresa();
-		String mostrar = "Cantidad de Empleados: 0.";
+		String mostrar = "Cantidad de Empleades: 0.";
 
 		assertEquals(mostrar, miEmpresa.toString());
 	}
 
 	// Acá empieza el verdadero trabajo
 	@Test
-	public void deboPoderMostrarUnaEmpresaConUnEmpleadoSinCategoriaDePlantaPermanenteJornadaCompleta() {
+	public void deboPoderMostrarUnaEmpresaConUnEmpleadeSinCategoriaDePlantaPermanenteJornadaCompleta() {
 		Empresa miEmpresa = new Empresa();
-		EmpleadeAbstracte miEmpleado = new Empleade("Juan De Los Palotes", "Sin Categoría", "Planta Permanente",
+		EmpleadeAbstracte miEmpleade = new Empleade("Juan De Los Palotes", "Sin Categoría", "Planta Permanente",
 				"Jornada Completa");
-		miEmpresa.contratar(miEmpleado);
-		String mostrar = "Cantidad de Empleados: 1." + "\n"
+		miEmpresa.contratar(miEmpleade);
+		String mostrar = "Cantidad de Empleades: 1." + "\n"
 				+ "1. Juan De Los Palotes (Sin Categoría, Planta Permanente, Jornada Completa)";
 		// System.out.println(miEmpresa.toString());
 		assertEquals(mostrar, miEmpresa.toString());
@@ -44,21 +44,21 @@ public class EmpresaTest {
 	@Test
 	public void deboPoderMostrarUnaEmpresaConUnGerenteDePlantaPermanente() {
 		Empresa miEmpresa = new Empresa();
-		EmpleadeAbstracte miEmpleado = new Gerente("Ana De la Cumbre", "Gerente", "Planta Permanente");
-		miEmpresa.contratar(miEmpleado);
-		String mostrar = "Cantidad de Empleados: 1." + "\n" + "1. Ana De la Cumbre (Gerente, Planta Permanente)";
+		EmpleadeAbstracte miEmpleade = new Gerente("Ana De la Cumbre", "Gerente", "Planta Permanente");
+		miEmpresa.contratar(miEmpleade);
+		String mostrar = "Cantidad de Empleades: 1." + "\n" + "1. Ana De la Cumbre (Gerente, Planta Permanente)";
 		// System.out.println(miEmpresa.toString());
 		assertEquals(mostrar, miEmpresa.toString());
 	}
 
 	// Test de regresión: verificamos que todos los demás casos posibles lo sean
 	@Test
-	public void deboPoderMostrarUnaEmpresaConUnEmpleadoSinCategoriaContratadoJornadaCompleta() {
+	public void deboPoderMostrarUnaEmpresaConUnEmpleadeSinCategoriaContratadoJornadaCompleta() {
 		Empresa miEmpresa = new Empresa();
-		EmpleadeAbstracte miEmpleado = new Empleade("Juan De Los Palotes", "Sin Categoría", "Contratado",
+		EmpleadeAbstracte miEmpleade = new Empleade("Juan De Los Palotes", "Sin Categoría", "Contratado",
 				"Jornada Completa");
-		miEmpresa.contratar(miEmpleado);
-		String mostrar = "Cantidad de Empleados: 1." + "\n"
+		miEmpresa.contratar(miEmpleade);
+		String mostrar = "Cantidad de Empleades: 1." + "\n"
 				+ "1. Juan De Los Palotes (Sin Categoría, Contratado, Jornada Completa)";
 		// System.out.println(miEmpresa.toString());
 		assertEquals(mostrar, miEmpresa.toString());
@@ -67,12 +67,12 @@ public class EmpresaTest {
 	// Test de regresión (bis): verificamos que todos los nuevos casos posibles lo
 	// sean
 	@Test
-	public void deboPoderMostrarUnaEmpresaConUnEmpleadoSinCategoriaContratadoMediaJornada() {
+	public void deboPoderMostrarUnaEmpresaConUnEmpleadeSinCategoriaContratadoMediaJornada() {
 		Empresa miEmpresa = new Empresa();
-		EmpleadeAbstracte miEmpleado = new Empleade("Juan De Los Palotes", "Sin Categoría", "Contratado",
+		EmpleadeAbstracte miEmpleade = new Empleade("Juan De Los Palotes", "Sin Categoría", "Contratado",
 				"Media Jornada");
-		miEmpresa.contratar(miEmpleado);
-		String mostrar = "Cantidad de Empleados: 1." + "\n"
+		miEmpresa.contratar(miEmpleade);
+		String mostrar = "Cantidad de Empleades: 1." + "\n"
 				+ "1. Juan De Los Palotes (Sin Categoría, Contratado, Media Jornada)";
 		// System.out.println(miEmpresa.toString());
 		assertEquals(mostrar, miEmpresa.toString());
@@ -81,12 +81,12 @@ public class EmpresaTest {
 	// Test de regresión (bis): verificamos que todos los nuevos casos posibles lo
 	// sean
 	@Test
-	public void deboPoderMostrarUnaEmpresaConUnEmpleadoSinCategoriaDePlantaPermanenteMediaJornada() {
+	public void deboPoderMostrarUnaEmpresaConUnEmpleadeSinCategoriaDePlantaPermanenteMediaJornada() {
 		Empresa miEmpresa = new Empresa();
-		EmpleadeAbstracte miEmpleado = new Empleade("Juan De Los Palotes", "Sin Categoría", "Planta Permanente",
+		EmpleadeAbstracte miEmpleade = new Empleade("Juan De Los Palotes", "Sin Categoría", "Planta Permanente",
 				"Media Jornada");
-		miEmpresa.contratar(miEmpleado);
-		String mostrar = "Cantidad de Empleados: 1." + "\n"
+		miEmpresa.contratar(miEmpleade);
+		String mostrar = "Cantidad de Empleades: 1." + "\n"
 				+ "1. Juan De Los Palotes (Sin Categoría, Planta Permanente, Media Jornada)";
 		// System.out.println(miEmpresa.toString());
 		assertEquals(mostrar, miEmpresa.toString());
