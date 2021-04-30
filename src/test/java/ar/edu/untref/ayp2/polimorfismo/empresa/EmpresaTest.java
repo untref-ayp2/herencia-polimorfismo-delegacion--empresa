@@ -31,7 +31,7 @@ public class EmpresaTest {
 	@Test
 	public void deboPoderMostrarUnaEmpresaConUnEmpleadoSinCategoriaDePlantaPermanenteJornadaCompleta() {
 		Empresa miEmpresa = new Empresa();
-		EmpleadeAbstracte miEmpleado = new SinCategoria("Juan De Los Palotes", "Sin Categoría", "Planta Permanente",
+		EmpleadeAbstracte miEmpleado = new Empleade("Juan De Los Palotes", "Sin Categoría", "Planta Permanente",
 				"Jornada Completa");
 		miEmpresa.contratar(miEmpleado);
 		String mostrar = "Cantidad de Empleados: 1." + "\n"
@@ -55,7 +55,7 @@ public class EmpresaTest {
 	@Test
 	public void deboPoderMostrarUnaEmpresaConUnEmpleadoSinCategoriaContratadoJornadaCompleta() {
 		Empresa miEmpresa = new Empresa();
-		EmpleadeAbstracte miEmpleado = new SinCategoria("Juan De Los Palotes", "Sin Categoría", "Contratado",
+		EmpleadeAbstracte miEmpleado = new Empleade("Juan De Los Palotes", "Sin Categoría", "Contratado",
 				"Jornada Completa");
 		miEmpresa.contratar(miEmpleado);
 		String mostrar = "Cantidad de Empleados: 1." + "\n"
@@ -69,7 +69,7 @@ public class EmpresaTest {
 	@Test
 	public void deboPoderMostrarUnaEmpresaConUnEmpleadoSinCategoriaContratadoMediaJornada() {
 		Empresa miEmpresa = new Empresa();
-		EmpleadeAbstracte miEmpleado = new SinCategoria("Juan De Los Palotes", "Sin Categoría", "Contratado",
+		EmpleadeAbstracte miEmpleado = new Empleade("Juan De Los Palotes", "Sin Categoría", "Contratado",
 				"Media Jornada");
 		miEmpresa.contratar(miEmpleado);
 		String mostrar = "Cantidad de Empleados: 1." + "\n"
@@ -83,7 +83,7 @@ public class EmpresaTest {
 	@Test
 	public void deboPoderMostrarUnaEmpresaConUnEmpleadoSinCategoriaDePlantaPermanenteMediaJornada() {
 		Empresa miEmpresa = new Empresa();
-		EmpleadeAbstracte miEmpleado = new SinCategoria("Juan De Los Palotes", "Sin Categoría", "Planta Permanente",
+		EmpleadeAbstracte miEmpleado = new Empleade("Juan De Los Palotes", "Sin Categoría", "Planta Permanente",
 				"Media Jornada");
 		miEmpresa.contratar(miEmpleado);
 		String mostrar = "Cantidad de Empleados: 1." + "\n"
