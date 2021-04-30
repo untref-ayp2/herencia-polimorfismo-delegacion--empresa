@@ -3,10 +3,10 @@ package ar.edu.untref.ayp2.polimorfismo.empresa;
 public abstract class EmpleadeAbstracte {
 
 	protected String nombre;
-	protected String categoria;
+	protected Categoria categoria;
 	protected String planta;
 
-	public EmpleadeAbstracte(String nombre, String categoria, String planta) {
+	public EmpleadeAbstracte(String nombre, Categoria categoria, String planta) {
 		this.nombre = nombre;
 		this.categoria = categoria;
 		this.planta = planta;
@@ -14,9 +14,13 @@ public abstract class EmpleadeAbstracte {
 
 	@Override
 	public String toString() {
-		String catyP = String.join(", ", categoria, planta);
+		String catyP = String.join(", ", categoria.toString(), planta);
 		catyP = "(" + catyP + ")";
 		return String.join(" ", nombre, catyP);
+	}
+
+	public Categoria obtCategoria() {
+		return categoria;
 	}
 
 }
