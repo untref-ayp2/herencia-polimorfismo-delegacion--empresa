@@ -116,4 +116,20 @@ public class EmpresaTest {
 		assertEquals(Planta.PERMANENTE, empleadeValideGerente.obtPlanta());
 	}
 
+	// Validación de datos (bis)
+	@Test
+	public void plantaDeEmpleadePuedeSerPermanenteOTemporaria() {
+
+		EmpleadeAbstracte empleadeValideSinCategoriaPermanente = new Empleade("Juan De Los Palotes", Planta.PERMANENTE,
+				"Jornada Completa");
+		EmpleadeAbstracte empleadeValideSinCategoriaTemporarie = new Empleade("Juan De Los Palotes", Planta.TEMPORARIA,
+				"Jornada Completa");
+
+		// La siguiente línea da error de compilación
+		// assertEquals(Planta.OTRA, empleadeValideSinCategoriaTemporarie.obtPlanta());
+
+		assertEquals(Planta.PERMANENTE, empleadeValideSinCategoriaPermanente.obtPlanta());
+		assertEquals(Planta.TEMPORARIA, empleadeValideSinCategoriaTemporarie.obtPlanta());
+	}
+
 }
