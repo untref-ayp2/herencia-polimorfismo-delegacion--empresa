@@ -36,10 +36,9 @@ public class EmpresaTest {
 		// al test son más legibles.
 		// Además, pueden cambiarse muy fácilmente luego, en caso de refactorizar.
 		boolean conPareja = true;
-		boolean sinPareja = false;
 
 		// Al predefinir algunos valores numéricos, es muy fácil cambiarles el valor
-		// para crear nuevos tests.
+		// (y/o nombre) para crear nuevos tests.
 		int dosHijes = 2;
 
 		EmpleadeAbstracte miEmpleade = new Empleade("Juan De Los Palotes", Planta.PERMANENTE, Jornada.COMPLETA,
@@ -59,12 +58,10 @@ public class EmpresaTest {
 		// Al predefinir estos valores booleanos, los nombres de los parámetros enviados
 		// al test son más legibles.
 		// Además, pueden cambiarse muy fácilmente luego, en caso de refactorizar.
-		boolean conPareja = true;
 		boolean sinPareja = false;
 
 		// Al predefinir algunos valores numéricos, es muy fácil cambiarles el valor
-		// para crear nuevos tests.
-		int dosHijes = 2;
+		// (y/o nombre) para crear nuevos tests.
 		int sinHijes = 0;
 
 		EmpleadeAbstracte miEmpleade = new Gerente("Ana De la Cumbre", sinPareja, sinHijes);
@@ -82,11 +79,10 @@ public class EmpresaTest {
 		// Al predefinir estos valores booleanos, los nombres de los parámetros enviados
 		// al test son más legibles.
 		// Además, pueden cambiarse muy fácilmente luego, en caso de refactorizar.
-		boolean conPareja = true;
 		boolean sinPareja = false;
 
 		// Al predefinir algunos valores numéricos, es muy fácil cambiarles el valor
-		// para crear nuevos tests.
+		// (y/o nombre) para crear nuevos tests.
 		int dosHijes = 2;
 
 		EmpleadeAbstracte miEmpleade = new Empleade("Juan De Los Palotes", Planta.TEMPORARIA, Jornada.COMPLETA,
@@ -107,11 +103,10 @@ public class EmpresaTest {
 		// Al predefinir estos valores booleanos, los nombres de los parámetros enviados
 		// al test son más legibles.
 		// Además, pueden cambiarse muy fácilmente luego, en caso de refactorizar.
-		boolean conPareja = true;
 		boolean sinPareja = false;
 
 		// Al predefinir algunos valores numéricos, es muy fácil cambiarles el valor
-		// para crear nuevos tests.
+		// (y/o nombre) para crear nuevos tests.
 		int dosHijes = 2;
 
 		EmpleadeAbstracte miEmpleade = new Empleade("Juan De Los Palotes", Planta.TEMPORARIA, Jornada.PARCIAL,
@@ -132,11 +127,10 @@ public class EmpresaTest {
 		// Al predefinir estos valores booleanos, los nombres de los parámetros enviados
 		// al test son más legibles.
 		// Además, pueden cambiarse muy fácilmente luego, en caso de refactorizar.
-		boolean conPareja = true;
 		boolean sinPareja = false;
 
 		// Al predefinir algunos valores numéricos, es muy fácil cambiarles el valor
-		// para crear nuevos tests.
+		// (y/o nombre) para crear nuevos tests.
 		int dosHijes = 2;
 
 		EmpleadeAbstracte miEmpleade = new Empleade("Juan De Los Palotes", Planta.PERMANENTE, Jornada.PARCIAL,
@@ -155,11 +149,10 @@ public class EmpresaTest {
 		// Al predefinir estos valores booleanos, los nombres de los parámetros enviados
 		// al test son más legibles.
 		// Además, pueden cambiarse muy fácilmente luego, en caso de refactorizar.
-		boolean conPareja = true;
 		boolean sinPareja = false;
 
 		// Al predefinir algunos valores numéricos, es muy fácil cambiarles el valor
-		// para crear nuevos tests.
+		// (y/o nombre) para crear nuevos tests.
 		int dosHijes = 2;
 
 		EmpleadeAbstracte empleadeValideSinCategoria = new Empleade("Juan De Los Palotes", Planta.PERMANENTE,
@@ -175,12 +168,10 @@ public class EmpresaTest {
 		// Al predefinir estos valores booleanos, los nombres de los parámetros enviados
 		// al test son más legibles.
 		// Además, pueden cambiarse muy fácilmente luego, en caso de refactorizar.
-		boolean conPareja = true;
 		boolean sinPareja = false;
 
 		// Al predefinir algunos valores numéricos, es muy fácil cambiarles el valor
-		// para crear nuevos tests.
-		int dosHijes = 2;
+		// (y/o nombre) para crear nuevos tests.
 		int sinHijes = 0;
 
 		EmpleadeAbstracte empleadeValideGerente = new Gerente("Ana De la Cumbre", sinPareja, sinHijes);
@@ -196,11 +187,9 @@ public class EmpresaTest {
 		// al test son más legibles.
 		// Además, pueden cambiarse muy fácilmente luego, en caso de refactorizar.
 		boolean conPareja = true;
-		boolean sinPareja = false;
 
 		// Al predefinir algunos valores numéricos, es muy fácil cambiarles el valor
-		// para crear nuevos tests.
-		int dosHijes = 2;
+		// (y/o nombre) para crear nuevos tests.
 		int sinHijes = 0;
 
 		EmpleadeAbstracte empleadeValideGerente = new Gerente("Ana De la Cumbre", conPareja, sinHijes);
@@ -216,10 +205,9 @@ public class EmpresaTest {
 		// al test son más legibles.
 		// Además, pueden cambiarse muy fácilmente luego, en caso de refactorizar.
 		boolean conPareja = true;
-		boolean sinPareja = false;
 
 		// Al predefinir algunos valores numéricos, es muy fácil cambiarles el valor
-		// para crear nuevos tests.
+		// (y/o nombre) para crear nuevos tests.
 		int dosHijes = 2;
 
 		EmpleadeAbstracte empleadeValideSinCategoriaPermanente = new Empleade("Juan De Los Palotes", Planta.PERMANENTE,
@@ -242,15 +230,14 @@ public class EmpresaTest {
 		// Al predefinir estos valores booleanos, los nombres de los parámetros enviados
 		// al test son más legibles.
 		// Además, pueden cambiarse muy fácilmente luego, en caso de refactorizar.
-		boolean conPareja = true;
 		boolean sinPareja = false;
 
 		// Al predefinir algunos valores numéricos, es muy fácil cambiarles el valor
-		// para crear nuevos tests.
+		// (y/o nombre) para crear nuevos tests.
 		int dosHijes = 2;
 
 		EmpleadeAbstracte empleadeValideSinCategoriaPermanente = new Empleade("Juan De Los Palotes", Planta.PERMANENTE,
-				Jornada.COMPLETA, conPareja, dosHijes);
+				Jornada.COMPLETA, sinPareja, dosHijes);
 		EmpleadeAbstracte empleadeValideSinCategoriaTemporarie = new Empleade("Juan De Los Palotes", Planta.TEMPORARIA,
 				Jornada.PARCIAL, sinPareja, dosHijes);
 
@@ -270,10 +257,9 @@ public class EmpresaTest {
 		// al test son más legibles.
 		// Además, pueden cambiarse muy fácilmente luego, en caso de refactorizar.
 		boolean conPareja = true;
-		boolean sinPareja = false;
 
 		// Al predefinir algunos valores numéricos, es muy fácil cambiarles el valor
-		// para crear nuevos tests.
+		// (y/o nombre) para crear nuevos tests.
 		int dosHijes = 2;
 
 		// Luego, simplemente leyendo esta línea tenemos una idea de exactamente qué
@@ -300,11 +286,10 @@ public class EmpresaTest {
 		// Al predefinir estos valores booleanos, los nombres de los parámetros enviados
 		// al test son más legibles.
 		// Además, pueden cambiarse muy fácilmente luego, en caso de refactorizar.
-		boolean conPareja = true;
 		boolean sinPareja = false;
 
 		// Al predefinir algunos valores numéricos, es muy fácil cambiarles el valor
-		// para crear nuevos tests.
+		// (y/o nombre) para crear nuevos tests.
 		int unHije = 1;
 
 		// Luego, simplemente leyendo esta línea tenemos una idea de exactamente qué
@@ -332,11 +317,10 @@ public class EmpresaTest {
 		// Al predefinir estos valores booleanos, los nombres de los parámetros enviados
 		// al test son más legibles.
 		// Además, pueden cambiarse muy fácilmente luego, en caso de refactorizar.
-		boolean conPareja = true;
 		boolean sinPareja = false;
 
 		// Al predefinir algunos valores numéricos, es muy fácil cambiarles el valor
-		// para crear nuevos tests.
+		// (y/o nombre) para crear nuevos tests.
 		int dosHijes = 2;
 
 		// Luego, simplemente leyendo esta línea tenemos una idea de exactamente qué
@@ -364,11 +348,10 @@ public class EmpresaTest {
 		// Al predefinir estos valores booleanos, los nombres de los parámetros enviados
 		// al test son más legibles.
 		// Además, pueden cambiarse muy fácilmente luego, en caso de refactorizar.
-		boolean conPareja = true;
 		boolean sinPareja = false;
 
 		// Al predefinir algunos valores numéricos, es muy fácil cambiarles el valor
-		// para crear nuevos tests.
+		// (y/o nombre) para crear nuevos tests.
 		int tresHijes = 3;
 
 		// Luego, simplemente leyendo esta línea tenemos una idea de exactamente qué
@@ -396,11 +379,10 @@ public class EmpresaTest {
 		// Al predefinir estos valores booleanos, los nombres de los parámetros enviados
 		// al test son más legibles.
 		// Además, pueden cambiarse muy fácilmente luego, en caso de refactorizar.
-		boolean conPareja = true;
 		boolean sinPareja = false;
 
 		// Al predefinir algunos valores numéricos, es muy fácil cambiarles el valor
-		// para crear nuevos tests.
+		// (y/o nombre) para crear nuevos tests.
 		int sinHijes = 0;
 
 		// Luego, simplemente leyendo esta línea tenemos una idea de exactamente qué
@@ -429,10 +411,9 @@ public class EmpresaTest {
 		// al test son más legibles.
 		// Además, pueden cambiarse muy fácilmente luego, en caso de refactorizar.
 		boolean conPareja = true;
-		boolean sinPareja = false;
 
 		// Al predefinir algunos valores numéricos, es muy fácil cambiarles el valor
-		// para crear nuevos tests.
+		// (y/o nombre) para crear nuevos tests.
 		int sinHijes = 0;
 
 		// Luego, simplemente leyendo esta línea tenemos una idea de exactamente qué
