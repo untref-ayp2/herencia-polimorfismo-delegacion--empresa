@@ -27,4 +27,11 @@ public class Empresa {
 		empleados.add(miEmpleado);
 	}
 
+	public double obtTotalDeSueldos() {
+		double sum = 0.0;
+		for (EmpleadeAbstracte e : empleados)
+			sum = sum + e.obtSueldo();
+		return sum;
+	}
+
 }
