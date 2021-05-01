@@ -5,18 +5,13 @@ public abstract class EmpleadeAbstracte {
 	protected String nombre;
 	protected Categoria categoria;
 	protected Planta planta;
+	protected Jornada jornada;
 
-	public EmpleadeAbstracte(String nombre, Categoria categoria, Planta planta) {
+	public EmpleadeAbstracte(String nombre, Categoria categoria, Planta planta, Jornada jornada) {
 		this.nombre = nombre;
 		this.categoria = categoria;
 		this.planta = planta;
-	}
-
-	@Override
-	public String toString() {
-		String catyP = String.join(", ", categoria.toString(), planta.toString());
-		catyP = "(" + catyP + ")";
-		return String.join(" ", nombre, catyP);
+		this.jornada = jornada;
 	}
 
 	public Categoria obtCategoria() {
@@ -25,6 +20,10 @@ public abstract class EmpleadeAbstracte {
 
 	public Planta obtPlanta() {
 		return planta;
+	}
+
+	public Jornada obtJornada() {
+		return jornada;
 	}
 
 }

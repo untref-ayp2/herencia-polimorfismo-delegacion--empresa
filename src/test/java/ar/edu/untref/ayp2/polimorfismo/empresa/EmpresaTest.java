@@ -31,7 +31,7 @@ public class EmpresaTest {
 	@Test
 	public void deboPoderMostrarUnaEmpresaConUnEmpleadeSinCategoriaDePlantaPermanenteJornadaCompleta() {
 		Empresa miEmpresa = new Empresa();
-		EmpleadeAbstracte miEmpleade = new Empleade("Juan De Los Palotes", Planta.PERMANENTE, "Jornada Completa");
+		EmpleadeAbstracte miEmpleade = new Empleade("Juan De Los Palotes", Planta.PERMANENTE, Jornada.COMPLETA);
 		miEmpresa.contratar(miEmpleade);
 		String mostrar = "Cantidad de Empleades: 1." + "\n"
 				+ "1. Juan De Los Palotes (Sin Categoría, Planta Permanente, Jornada Completa)";
@@ -54,7 +54,7 @@ public class EmpresaTest {
 	@Test
 	public void deboPoderMostrarUnaEmpresaConUnEmpleadeSinCategoriaContratadoJornadaCompleta() {
 		Empresa miEmpresa = new Empresa();
-		EmpleadeAbstracte miEmpleade = new Empleade("Juan De Los Palotes", Planta.TEMPORARIA, "Jornada Completa");
+		EmpleadeAbstracte miEmpleade = new Empleade("Juan De Los Palotes", Planta.TEMPORARIA, Jornada.COMPLETA);
 		miEmpresa.contratar(miEmpleade);
 		String mostrar = "Cantidad de Empleades: 1." + "\n"
 				+ "1. Juan De Los Palotes (Sin Categoría, Planta Temporaria, Jornada Completa)";
@@ -67,7 +67,7 @@ public class EmpresaTest {
 	@Test
 	public void deboPoderMostrarUnaEmpresaConUnEmpleadeSinCategoriaContratadoMediaJornada() {
 		Empresa miEmpresa = new Empresa();
-		EmpleadeAbstracte miEmpleade = new Empleade("Juan De Los Palotes", Planta.TEMPORARIA, "Media Jornada");
+		EmpleadeAbstracte miEmpleade = new Empleade("Juan De Los Palotes", Planta.TEMPORARIA, Jornada.PARCIAL);
 		miEmpresa.contratar(miEmpleade);
 		String mostrar = "Cantidad de Empleades: 1." + "\n"
 				+ "1. Juan De Los Palotes (Sin Categoría, Planta Temporaria, Media Jornada)";
@@ -80,7 +80,7 @@ public class EmpresaTest {
 	@Test
 	public void deboPoderMostrarUnaEmpresaConUnEmpleadeSinCategoriaDePlantaPermanenteMediaJornada() {
 		Empresa miEmpresa = new Empresa();
-		EmpleadeAbstracte miEmpleade = new Empleade("Juan De Los Palotes", Planta.PERMANENTE, "Media Jornada");
+		EmpleadeAbstracte miEmpleade = new Empleade("Juan De Los Palotes", Planta.PERMANENTE, Jornada.PARCIAL);
 		miEmpresa.contratar(miEmpleade);
 		String mostrar = "Cantidad de Empleades: 1." + "\n"
 				+ "1. Juan De Los Palotes (Sin Categoría, Planta Permanente, Media Jornada)";
@@ -93,7 +93,7 @@ public class EmpresaTest {
 	public void categoriaDeEmpleadeSoloPuedeSerSinCantegoria() {
 
 		EmpleadeAbstracte empleadeValideSinCategoria = new Empleade("Juan De Los Palotes", Planta.PERMANENTE,
-				"Jornada Completa");
+				Jornada.COMPLETA);
 
 		assertEquals(Categoria.SIN_CATEGORIA, empleadeValideSinCategoria.obtCategoria());
 	}
@@ -118,18 +118,35 @@ public class EmpresaTest {
 
 	// Validación de datos (bis)
 	@Test
-	public void plantaDeEmpleadePuedeSerPermanenteOTemporaria() {
+	public void plantaDeEmpleadeSoloPuedeSerPermanenteOTemporaria() {
 
 		EmpleadeAbstracte empleadeValideSinCategoriaPermanente = new Empleade("Juan De Los Palotes", Planta.PERMANENTE,
-				"Jornada Completa");
+				Jornada.COMPLETA);
 		EmpleadeAbstracte empleadeValideSinCategoriaTemporarie = new Empleade("Juan De Los Palotes", Planta.TEMPORARIA,
-				"Jornada Completa");
+				Jornada.COMPLETA);
 
 		// La siguiente línea da error de compilación
 		// assertEquals(Planta.OTRA, empleadeValideSinCategoriaTemporarie.obtPlanta());
 
 		assertEquals(Planta.PERMANENTE, empleadeValideSinCategoriaPermanente.obtPlanta());
 		assertEquals(Planta.TEMPORARIA, empleadeValideSinCategoriaTemporarie.obtPlanta());
+
+	}
+
+	// Validación de datos (bis)
+	@Test
+	public void jornadaDeEmpleadePuedeSerSoloCompletaOParcial() {
+
+		EmpleadeAbstracte empleadeValideSinCategoriaPermanente = new Empleade("Juan De Los Palotes", Planta.PERMANENTE,
+				Jornada.COMPLETA);
+		EmpleadeAbstracte empleadeValideSinCategoriaTemporarie = new Empleade("Juan De Los Palotes", Planta.TEMPORARIA,
+				Jornada.PARCIAL);
+
+		// La siguiente línea da error de compilación
+		// assertEquals(Jornada.NI, empleadeValideSinCategoriaPermanente.obtJornada());
+
+		assertEquals(Jornada.COMPLETA, empleadeValideSinCategoriaPermanente.obtJornada());
+		assertEquals(Jornada.PARCIAL, empleadeValideSinCategoriaTemporarie.obtJornada());
 	}
 
 }
