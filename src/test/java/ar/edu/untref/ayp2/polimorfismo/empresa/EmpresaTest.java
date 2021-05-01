@@ -293,6 +293,38 @@ public class EmpresaTest {
 	}
 
 	@Test
+	public void laEmpresaDebePoderObtenerElSueldoDeUnPlantaTemporariaTiempoCompletoSinParejaUnHije() {
+
+		Empresa miEmpresa = new Empresa();
+
+		// Al predefinir estos valores booleanos, los nombres de los parámetros enviados
+		// al test son más legibles.
+		// Además, pueden cambiarse muy fácilmente luego, en caso de refactorizar.
+		boolean conPareja = true;
+		boolean sinPareja = false;
+
+		// Al predefinir algunos valores numéricos, es muy fácil cambiarles el valor
+		// para crear nuevos tests.
+		int unHije = 1;
+
+		// Luego, simplemente leyendo esta línea tenemos una idea de exactamente qué
+		// estamos probando.
+		EmpleadeAbstracte miEmpleadePlantaTemporariaJornadaCompletaConParejaUnHije = new Empleade("Juan De Los Palotes",
+				Planta.TEMPORARIA, Jornada.COMPLETA, sinPareja, unHije);
+		miEmpresa.contratar(miEmpleadePlantaTemporariaJornadaCompletaConParejaUnHije);
+
+		// El Cálculo para Empleade Planta Temporaria Jornada Completa:
+		// Sueldo Básico + Salario Familiar
+
+		// Sueldo Básico = 1000.0
+		// Salario Familar = 200.0 * hije + 100.0 si tiene pareja registrada
+		// En este caso, 1400 = 1000.0 + 200.0 * 1
+
+		assertEquals(1200, miEmpresa.obtTotalDeSueldos());
+	}
+
+	// Test de regresión
+	@Test
 	public void laEmpresaDebePoderObtenerElSueldoDeUnPlantaTemporariaTiempoCompletoSinParejaDosHijes() {
 
 		Empresa miEmpresa = new Empresa();
@@ -321,6 +353,102 @@ public class EmpresaTest {
 		// En este caso, 1400 = 1000.0 + 200.0 * 2
 
 		assertEquals(1400, miEmpresa.obtTotalDeSueldos());
+	}
+
+	// Test de regresión
+	@Test
+	public void laEmpresaDebePoderObtenerElSueldoDeUnPlantaTemporariaTiempoCompletoSinParejaTresHijes() {
+
+		Empresa miEmpresa = new Empresa();
+
+		// Al predefinir estos valores booleanos, los nombres de los parámetros enviados
+		// al test son más legibles.
+		// Además, pueden cambiarse muy fácilmente luego, en caso de refactorizar.
+		boolean conPareja = true;
+		boolean sinPareja = false;
+
+		// Al predefinir algunos valores numéricos, es muy fácil cambiarles el valor
+		// para crear nuevos tests.
+		int tresHijes = 3;
+
+		// Luego, simplemente leyendo esta línea tenemos una idea de exactamente qué
+		// estamos probando.
+		EmpleadeAbstracte miEmpleadePlantaTemporariaJornadaCompletaConParejaTresHijes = new Empleade(
+				"Juan De Los Palotes", Planta.TEMPORARIA, Jornada.COMPLETA, sinPareja, tresHijes);
+		miEmpresa.contratar(miEmpleadePlantaTemporariaJornadaCompletaConParejaTresHijes);
+
+		// El Cálculo para Empleade Planta Temporaria Jornada Completa:
+		// Sueldo Básico + Salario Familiar
+
+		// Sueldo Básico = 1000.0
+		// Salario Familar = 200.0 * hije + 100.0 si tiene pareja registrada
+		// En este caso, 1600 = 1000.0 + 200.0 * 3
+
+		assertEquals(1600, miEmpresa.obtTotalDeSueldos());
+	}
+
+	// Test de regresión
+	@Test
+	public void laEmpresaDebePoderObtenerElSueldoDeUnPlantaTemporariaTiempoCompletoSinParejaSinHijes() {
+
+		Empresa miEmpresa = new Empresa();
+
+		// Al predefinir estos valores booleanos, los nombres de los parámetros enviados
+		// al test son más legibles.
+		// Además, pueden cambiarse muy fácilmente luego, en caso de refactorizar.
+		boolean conPareja = true;
+		boolean sinPareja = false;
+
+		// Al predefinir algunos valores numéricos, es muy fácil cambiarles el valor
+		// para crear nuevos tests.
+		int sinHijes = 0;
+
+		// Luego, simplemente leyendo esta línea tenemos una idea de exactamente qué
+		// estamos probando.
+		EmpleadeAbstracte miEmpleadePlantaTemporariaJornadaCompletaConParejaSinHijes = new Empleade(
+				"Juan De Los Palotes", Planta.TEMPORARIA, Jornada.COMPLETA, sinPareja, sinHijes);
+		miEmpresa.contratar(miEmpleadePlantaTemporariaJornadaCompletaConParejaSinHijes);
+
+		// El Cálculo para Empleade Planta Temporaria Jornada Completa:
+		// Sueldo Básico + Salario Familiar
+
+		// Sueldo Básico = 1000.0
+		// Salario Familar = 200.0 * hije + 100.0 si tiene pareja registrada
+		// En este caso, 1000 = 1000.0
+
+		assertEquals(1000, miEmpresa.obtTotalDeSueldos());
+	}
+
+	// Test de regresión
+	@Test
+	public void laEmpresaDebePoderObtenerElSueldoDeUnPlantaTemporariaTiempoCompletoConParejaSinHijes() {
+
+		Empresa miEmpresa = new Empresa();
+
+		// Al predefinir estos valores booleanos, los nombres de los parámetros enviados
+		// al test son más legibles.
+		// Además, pueden cambiarse muy fácilmente luego, en caso de refactorizar.
+		boolean conPareja = true;
+		boolean sinPareja = false;
+
+		// Al predefinir algunos valores numéricos, es muy fácil cambiarles el valor
+		// para crear nuevos tests.
+		int sinHijes = 0;
+
+		// Luego, simplemente leyendo esta línea tenemos una idea de exactamente qué
+		// estamos probando.
+		EmpleadeAbstracte miEmpleadePlantaTemporariaJornadaCompletaConParejaSinHijes = new Empleade(
+				"Juan De Los Palotes", Planta.TEMPORARIA, Jornada.COMPLETA, conPareja, sinHijes);
+		miEmpresa.contratar(miEmpleadePlantaTemporariaJornadaCompletaConParejaSinHijes);
+
+		// El Cálculo para Empleade Planta Temporaria Jornada Completa:
+		// Sueldo Básico + Salario Familiar
+
+		// Sueldo Básico = 1000.0
+		// Salario Familar = 200.0 * hije + 100.0 si tiene pareja registrada
+		// En este caso, 1100 = 1000.0 + 100.0
+
+		assertEquals(1100, miEmpresa.obtTotalDeSueldos());
 	}
 
 }
