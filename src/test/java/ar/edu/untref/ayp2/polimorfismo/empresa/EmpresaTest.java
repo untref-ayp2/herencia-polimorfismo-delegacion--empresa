@@ -292,4 +292,35 @@ public class EmpresaTest {
 		assertEquals(1500, miEmpresa.obtTotalDeSueldos());
 	}
 
+	@Test
+	public void laEmpresaDebePoderObtenerElSueldoDeUnPlantaTemporariaTiempoCompletoSinParejaDosHijes() {
+
+		Empresa miEmpresa = new Empresa();
+
+		// Al predefinir estos valores booleanos, los nombres de los parámetros enviados
+		// al test son más legibles.
+		// Además, pueden cambiarse muy fácilmente luego, en caso de refactorizar.
+		boolean conPareja = true;
+		boolean sinPareja = false;
+
+		// Al predefinir algunos valores numéricos, es muy fácil cambiarles el valor
+		// para crear nuevos tests.
+		int dosHijes = 2;
+
+		// Luego, simplemente leyendo esta línea tenemos una idea de exactamente qué
+		// estamos probando.
+		EmpleadeAbstracte miEmpleadePlantaTemporariaJornadaCompletaConParejaDosHijes = new Empleade(
+				"Juan De Los Palotes", Planta.TEMPORARIA, Jornada.COMPLETA, sinPareja, dosHijes);
+		miEmpresa.contratar(miEmpleadePlantaTemporariaJornadaCompletaConParejaDosHijes);
+
+		// El Cálculo para Empleade Planta Temporaria Jornada Completa:
+		// Sueldo Básico + Salario Familiar
+
+		// Sueldo Básico = 1000.0
+		// Salario Familar = 200.0 * hije + 100.0 si tiene pareja registrada
+		// En este caso, 1400 = 1000.0 + 200.0 * 2
+
+		assertEquals(1400, miEmpresa.obtTotalDeSueldos());
+	}
+
 }

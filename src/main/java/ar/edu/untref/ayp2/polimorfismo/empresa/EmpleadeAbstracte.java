@@ -2,6 +2,10 @@ package ar.edu.untref.ayp2.polimorfismo.empresa;
 
 public abstract class EmpleadeAbstracte {
 
+	private static final double ASIGNACION_PAREJA = 100.0;
+	private static final double SALARIO_BASICO = 1000.0;
+	private static final double ASIGNACION_HIJO = 200.0;
+
 	protected String nombre;
 	protected Categoria categoria;
 	protected Planta planta;
@@ -31,11 +35,12 @@ public abstract class EmpleadeAbstracte {
 		return jornada;
 	}
 
-	// Por ahora, hacemos trampa y hacemos que el método nos devuelva
-	// el valor pedido por nuestro test.
 	public double obtSueldo() {
-		return 1500.0;
+		return SALARIO_BASICO + obtSalarioFamiliar();
+	}
 
+	private double obtSalarioFamiliar() {
+		return (ASIGNACION_HIJO * cantHijes) + (tienePareja ? ASIGNACION_PAREJA : 0.0);
 	}
 
 }
