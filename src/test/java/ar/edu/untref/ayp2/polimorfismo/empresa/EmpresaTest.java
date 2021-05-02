@@ -401,4 +401,26 @@ public class EmpresaTest {
 		assertEquals(miEmpresa1.obtTotalDeSueldos(), miEmpresa2.obtTotalDeSueldos());
 	}
 
+	// Agregamos soporte para Gerentes
+	@Test
+	public void laEmpresaDebePoderObtenerElSueldoDeUneGerenteConParejaSinHijesSinAntiguedad() {
+
+		Empresa miEmpresa = new Empresa();
+		EmpleadeAbstracte miGerenteConParejaSinHijesSinAntiguedad = new Gerente("Ana De la Cumbre", CON_PAREJA,
+				SIN_HIJES, SIN_ANTIGUEDAD);
+		miEmpresa.contratar(miGerenteConParejaSinHijesSinAntiguedad);
+
+		// El Cálculo para Gerente:
+		// Sueldo Básico + Salario Familiar + Antigüedad + Asig. por Personal a Cargo
+		//
+		// Sueldo Básico = 1000.0
+		// Salario Familar = 200.0 * hije + 100.0 si tiene pareja registrada
+		// Antigüedad: 100 * Año, max: 2000.
+		// Asig. por Personal a Cargo: 2000 (fijo)
+		// En este caso, para A == 0,
+		// 3100 = 1000 + 100.0 + 0.0 + 2000.0
+
+		assertEquals(3100, miEmpresa.obtTotalDeSueldos());
+	}
+
 }
