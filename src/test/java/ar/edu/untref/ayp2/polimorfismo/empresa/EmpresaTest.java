@@ -423,4 +423,52 @@ public class EmpresaTest {
 		assertEquals(3100, miEmpresa.obtTotalDeSueldos());
 	}
 
+	// Test de regresión: probamos con el máximo posible de antigüedad
+	@Test
+	public void laEmpresaDebePoderObtenerElSueldoDeUneGerenteConParejaSinHijesConAntiguedad20() {
+
+		Empresa miEmpresa = new Empresa();
+		EmpleadeAbstracte miGerenteConParejaSinHijesConAntiguedad20 = new Gerente("Ana De la Cumbre", CON_PAREJA,
+				SIN_HIJES, ANTIGUEDAD_20);
+		miEmpresa.contratar(miGerenteConParejaSinHijesConAntiguedad20);
+
+		// El Cálculo para Gerente:
+		// Sueldo Básico + Salario Familiar + Antigüedad + Asig. por Personal a Cargo
+		//
+		// Sueldo Básico = 1000.0
+		// Salario Familar = 200.0 * hije + 100.0 si tiene pareja registrada
+		// Antigüedad: 100 * Año, max: 2000.
+		// Asig. por Personal a Cargo: 2000 (fijo)
+		// En este caso, para A == 20,
+		// 5100 = 1000 + 100.0 + (20 * 100.0) + 2000.0
+
+		assertEquals(5100, miEmpresa.obtTotalDeSueldos());
+	}
+
+	// Test de regresión: probamos sobrepasar el máximo posible de antigüedad
+	@Test
+	public void laEmpresaDebePoderObtenerElSueldoDeUneGerenteConParejaSinHijesConAntiguedad37() {
+
+		Empresa miEmpresa1 = new Empresa();
+		EmpleadeAbstracte miGerenteConParejaSinHijesConAntiguedad20 = new Gerente("Ana De la Cumbre", CON_PAREJA,
+				SIN_HIJES, ANTIGUEDAD_20);
+		miEmpresa1.contratar(miGerenteConParejaSinHijesConAntiguedad20);
+
+		Empresa miEmpresa2 = new Empresa();
+		EmpleadeAbstracte miGerenteConParejaSinHijesConAntiguedad37 = new Gerente("Ana De la Cumbre", CON_PAREJA,
+				SIN_HIJES, ANTIGUEDAD_37);
+		miEmpresa2.contratar(miGerenteConParejaSinHijesConAntiguedad37);
+
+		// El Cálculo para Gerente:
+		// Sueldo Básico + Salario Familiar + Antigüedad + Asig. por Personal a Cargo
+		//
+		// Sueldo Básico = 1000.0
+		// Salario Familar = 200.0 * hije + 100.0 si tiene pareja registrada
+		// Antigüedad: 100 * Año, max: 2000.
+		// Asig. por Personal a Cargo: 2000 (fijo)
+		// Si A > 20, el resultado debería ser igual a si A == 20.
+
+		assertEquals(miEmpresa1.obtTotalDeSueldos(), miEmpresa2.obtTotalDeSueldos());
+	}
+
 }
