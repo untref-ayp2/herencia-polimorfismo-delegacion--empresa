@@ -31,6 +31,12 @@ public class EmpresaTest {
 	// Este valor es el necesario para verificar el caso más simple posible.
 	private static final int ANTIGUEDAD_1 = 1;
 
+	// Este valor nos da un resultado menor al máximo computable por antigüedad.
+	private static final int ANTIGUEDAD_13 = 13;
+
+	// Este valor nos da un resultado igual al máximo computable por antigüedad.
+	private static final int ANTIGUEDAD_20 = 20;
+
 	@Test
 	public void empresaTest() {
 		assertTrue(true);
@@ -319,6 +325,50 @@ public class EmpresaTest {
 		// En este caso, 1200 = 1000.0 + 100.0 + (100 * 1)
 
 		assertEquals(1200, miEmpresa.obtTotalDeSueldos());
+	}
+
+	// Test de regresión
+	@Test
+	public void laEmpresaDebePoderObtenerElSueldoDeUnPlantaPermanenteTiempoCompletoConParejaSinHijesConAntiguedad13() {
+
+		Empresa miEmpresa = new Empresa();
+
+		EmpleadeAbstracte miEmpleadePlantaTemporariaJornadaCompletaConParejaSinHijesConAntiguedad13 = new Empleade(
+				"Juan De Los Palotes", Planta.PERMANENTE, Jornada.COMPLETA, CON_PAREJA, SIN_HIJES, ANTIGUEDAD_13);
+		miEmpresa.contratar(miEmpleadePlantaTemporariaJornadaCompletaConParejaSinHijesConAntiguedad13);
+
+		// El Cálculo para Empleade Planta Permanente Jornada Completa:
+		// Sueldo Básico + Salario Familiar + Antigüedad
+
+		// Sueldo Básico = 1000.0
+		// Salario Familar = 200.0 * hije + 100.0 si tiene pareja registrada
+		// Antigüedad: 100 * Año, max: 2000.
+		// Si A = 13,
+		// En este caso, 2400 = 1000.0 + 100.0 + (100 * 13)
+
+		assertEquals(2400, miEmpresa.obtTotalDeSueldos());
+	}
+
+	// Test de regresión
+	@Test
+	public void laEmpresaDebePoderObtenerElSueldoDeUnPlantaPermanenteTiempoCompletoConParejaSinHijesConAntiguedad20() {
+
+		Empresa miEmpresa = new Empresa();
+
+		EmpleadeAbstracte miEmpleadePlantaTemporariaJornadaCompletaConParejaSinHijesConAntiguedad20 = new Empleade(
+				"Juan De Los Palotes", Planta.PERMANENTE, Jornada.COMPLETA, CON_PAREJA, SIN_HIJES, ANTIGUEDAD_20);
+		miEmpresa.contratar(miEmpleadePlantaTemporariaJornadaCompletaConParejaSinHijesConAntiguedad20);
+
+		// El Cálculo para Empleade Planta Permanente Jornada Completa:
+		// Sueldo Básico + Salario Familiar + Antigüedad
+
+		// Sueldo Básico = 1000.0
+		// Salario Familar = 200.0 * hije + 100.0 si tiene pareja registrada
+		// Antigüedad: 100 * Año, max: 2000.
+		// Si A = 20,
+		// En este caso, 3100 = 1000.0 + 100.0 + (100 * 20)
+
+		assertEquals(3100, miEmpresa.obtTotalDeSueldos());
 	}
 
 }
