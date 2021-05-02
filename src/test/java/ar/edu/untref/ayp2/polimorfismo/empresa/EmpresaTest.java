@@ -16,10 +16,20 @@ public class EmpresaTest {
 
 	// Al predefinir algunos valores numéricos, es muy fácil cambiarles el valor
 	// (y/o nombre) para crear nuevos tests.
+	// Excepto el 0 y algún otro valor especial, todos los números son primos.
+	// Esto es bueno para disminuir la posibilidad de repetir resultados.
 	private static final int SIN_HIJES = 0;
 	private static final int UN_HIJE = 1;
 	private static final int DOS_HIJES = 2;
 	private static final int TRES_HIJES = 3;
+
+	// ANTIGÜEDAD
+	//
+	// Este valor nos sirve para que los tests anteriores sigan funcionando.
+	private static final int SIN_ANTIGUEDAD = 0;
+
+	// Este valor es el necesario para verificar el caso más simple posible.
+	private static final int ANTIGUEDAD_1 = 1;
 
 	@Test
 	public void empresaTest() {
@@ -46,7 +56,7 @@ public class EmpresaTest {
 		Empresa miEmpresa = new Empresa();
 
 		EmpleadeAbstracte miEmpleade = new Empleade("Juan De Los Palotes", Planta.PERMANENTE, Jornada.COMPLETA,
-				CON_PAREJA, DOS_HIJES);
+				CON_PAREJA, DOS_HIJES, SIN_ANTIGUEDAD);
 		miEmpresa.contratar(miEmpleade);
 		String mostrar = "Cantidad de Empleades: 1." + "\n"
 				+ "1. Juan De Los Palotes (Sin Categoría, Planta Permanente, Jornada Completa)";
@@ -59,7 +69,7 @@ public class EmpresaTest {
 	public void deboPoderMostrarUnaEmpresaConUnGerenteDePlantaPermanente() {
 		Empresa miEmpresa = new Empresa();
 
-		EmpleadeAbstracte miEmpleade = new Gerente("Ana De la Cumbre", SIN_PAREJA, SIN_HIJES);
+		EmpleadeAbstracte miEmpleade = new Gerente("Ana De la Cumbre", SIN_PAREJA, SIN_HIJES, SIN_ANTIGUEDAD);
 		miEmpresa.contratar(miEmpleade);
 		String mostrar = "Cantidad de Empleades: 1." + "\n" + "1. Ana De la Cumbre (Gerente, Planta Permanente)";
 		// System.out.println(miEmpresa.toString());
@@ -72,7 +82,7 @@ public class EmpresaTest {
 		Empresa miEmpresa = new Empresa();
 
 		EmpleadeAbstracte miEmpleade = new Empleade("Juan De Los Palotes", Planta.TEMPORARIA, Jornada.COMPLETA,
-				SIN_PAREJA, DOS_HIJES);
+				SIN_PAREJA, DOS_HIJES, SIN_ANTIGUEDAD);
 		miEmpresa.contratar(miEmpleade);
 		String mostrar = "Cantidad de Empleades: 1." + "\n"
 				+ "1. Juan De Los Palotes (Sin Categoría, Planta Temporaria, Jornada Completa)";
@@ -87,7 +97,7 @@ public class EmpresaTest {
 		Empresa miEmpresa = new Empresa();
 
 		EmpleadeAbstracte miEmpleade = new Empleade("Juan De Los Palotes", Planta.TEMPORARIA, Jornada.PARCIAL,
-				SIN_PAREJA, DOS_HIJES);
+				SIN_PAREJA, DOS_HIJES, SIN_ANTIGUEDAD);
 		miEmpresa.contratar(miEmpleade);
 		String mostrar = "Cantidad de Empleades: 1." + "\n"
 				+ "1. Juan De Los Palotes (Sin Categoría, Planta Temporaria, Media Jornada)";
@@ -102,7 +112,7 @@ public class EmpresaTest {
 		Empresa miEmpresa = new Empresa();
 
 		EmpleadeAbstracte miEmpleade = new Empleade("Juan De Los Palotes", Planta.PERMANENTE, Jornada.PARCIAL,
-				SIN_PAREJA, DOS_HIJES);
+				SIN_PAREJA, DOS_HIJES, SIN_ANTIGUEDAD);
 		miEmpresa.contratar(miEmpleade);
 		String mostrar = "Cantidad de Empleades: 1." + "\n"
 				+ "1. Juan De Los Palotes (Sin Categoría, Planta Permanente, Media Jornada)";
@@ -115,7 +125,7 @@ public class EmpresaTest {
 	public void categoriaDeEmpleadeSoloPuedeSerSinCantegoria() {
 
 		EmpleadeAbstracte empleadeValideSinCategoria = new Empleade("Juan De Los Palotes", Planta.PERMANENTE,
-				Jornada.COMPLETA, SIN_PAREJA, DOS_HIJES);
+				Jornada.COMPLETA, SIN_PAREJA, DOS_HIJES, SIN_ANTIGUEDAD);
 
 		assertEquals(Categoria.SIN_CATEGORIA, empleadeValideSinCategoria.obtCategoria());
 	}
@@ -124,7 +134,8 @@ public class EmpresaTest {
 	@Test
 	public void categoriaDeGerenteSoloPuedeSerGerente() {
 
-		EmpleadeAbstracte empleadeValideGerente = new Gerente("Ana De la Cumbre", SIN_PAREJA, SIN_HIJES);
+		EmpleadeAbstracte empleadeValideGerente = new Gerente("Ana De la Cumbre", SIN_PAREJA, SIN_HIJES,
+				SIN_ANTIGUEDAD);
 
 		assertEquals(Categoria.GERENTE, empleadeValideGerente.obtCategoria());
 	}
@@ -133,7 +144,8 @@ public class EmpresaTest {
 	@Test
 	public void plantaDeGerenteSoloPuedeSerPermanente() {
 
-		EmpleadeAbstracte empleadeValideGerente = new Gerente("Ana De la Cumbre", CON_PAREJA, SIN_HIJES);
+		EmpleadeAbstracte empleadeValideGerente = new Gerente("Ana De la Cumbre", CON_PAREJA, SIN_HIJES,
+				SIN_ANTIGUEDAD);
 
 		assertEquals(Planta.PERMANENTE, empleadeValideGerente.obtPlanta());
 	}
@@ -143,9 +155,9 @@ public class EmpresaTest {
 	public void plantaDeEmpleadeSoloPuedeSerPermanenteOTemporaria() {
 
 		EmpleadeAbstracte empleadeValideSinCategoriaPermanente = new Empleade("Juan De Los Palotes", Planta.PERMANENTE,
-				Jornada.COMPLETA, CON_PAREJA, DOS_HIJES);
+				Jornada.COMPLETA, CON_PAREJA, DOS_HIJES, SIN_ANTIGUEDAD);
 		EmpleadeAbstracte empleadeValideSinCategoriaTemporarie = new Empleade("Juan De Los Palotes", Planta.TEMPORARIA,
-				Jornada.COMPLETA, CON_PAREJA, DOS_HIJES);
+				Jornada.COMPLETA, CON_PAREJA, DOS_HIJES, SIN_ANTIGUEDAD);
 
 		// La siguiente línea da error de compilación
 		// assertEquals(Planta.OTRA, empleadeValideSinCategoriaTemporarie.obtPlanta());
@@ -160,9 +172,9 @@ public class EmpresaTest {
 	public void jornadaDeEmpleadePuedeSerSoloCompletaOParcial() {
 
 		EmpleadeAbstracte empleadeValideSinCategoriaPermanente = new Empleade("Juan De Los Palotes", Planta.PERMANENTE,
-				Jornada.COMPLETA, SIN_PAREJA, DOS_HIJES);
+				Jornada.COMPLETA, SIN_PAREJA, DOS_HIJES, SIN_ANTIGUEDAD);
 		EmpleadeAbstracte empleadeValideSinCategoriaTemporarie = new Empleade("Juan De Los Palotes", Planta.TEMPORARIA,
-				Jornada.PARCIAL, SIN_PAREJA, DOS_HIJES);
+				Jornada.PARCIAL, SIN_PAREJA, DOS_HIJES, SIN_ANTIGUEDAD);
 
 		// La siguiente línea da error de compilación
 		// assertEquals(Jornada.NI, empleadeValideSinCategoriaPermanente.obtJornada());
@@ -177,7 +189,7 @@ public class EmpresaTest {
 		Empresa miEmpresa = new Empresa();
 
 		EmpleadeAbstracte miEmpleadePlantaTemporariaJornadaCompletaConParejaDosHijes = new Empleade(
-				"Juan De Los Palotes", Planta.TEMPORARIA, Jornada.COMPLETA, CON_PAREJA, DOS_HIJES);
+				"Juan De Los Palotes", Planta.TEMPORARIA, Jornada.COMPLETA, CON_PAREJA, DOS_HIJES, SIN_ANTIGUEDAD);
 		miEmpresa.contratar(miEmpleadePlantaTemporariaJornadaCompletaConParejaDosHijes);
 
 		// El Cálculo para Empleade Planta Temporaria Jornada Completa:
@@ -196,7 +208,7 @@ public class EmpresaTest {
 		Empresa miEmpresa = new Empresa();
 
 		EmpleadeAbstracte miEmpleadePlantaTemporariaJornadaCompletaConParejaUnHije = new Empleade("Juan De Los Palotes",
-				Planta.TEMPORARIA, Jornada.COMPLETA, SIN_PAREJA, UN_HIJE);
+				Planta.TEMPORARIA, Jornada.COMPLETA, SIN_PAREJA, UN_HIJE, SIN_ANTIGUEDAD);
 		miEmpresa.contratar(miEmpleadePlantaTemporariaJornadaCompletaConParejaUnHije);
 
 		// El Cálculo para Empleade Planta Temporaria Jornada Completa:
@@ -216,7 +228,7 @@ public class EmpresaTest {
 		Empresa miEmpresa = new Empresa();
 
 		EmpleadeAbstracte miEmpleadePlantaTemporariaJornadaCompletaConParejaDosHijes = new Empleade(
-				"Juan De Los Palotes", Planta.TEMPORARIA, Jornada.COMPLETA, SIN_PAREJA, DOS_HIJES);
+				"Juan De Los Palotes", Planta.TEMPORARIA, Jornada.COMPLETA, SIN_PAREJA, DOS_HIJES, SIN_ANTIGUEDAD);
 		miEmpresa.contratar(miEmpleadePlantaTemporariaJornadaCompletaConParejaDosHijes);
 
 		// El Cálculo para Empleade Planta Temporaria Jornada Completa:
@@ -236,7 +248,7 @@ public class EmpresaTest {
 		Empresa miEmpresa = new Empresa();
 
 		EmpleadeAbstracte miEmpleadePlantaTemporariaJornadaCompletaConParejaTresHijes = new Empleade(
-				"Juan De Los Palotes", Planta.TEMPORARIA, Jornada.COMPLETA, SIN_PAREJA, TRES_HIJES);
+				"Juan De Los Palotes", Planta.TEMPORARIA, Jornada.COMPLETA, SIN_PAREJA, TRES_HIJES, SIN_ANTIGUEDAD);
 		miEmpresa.contratar(miEmpleadePlantaTemporariaJornadaCompletaConParejaTresHijes);
 
 		// El Cálculo para Empleade Planta Temporaria Jornada Completa:
@@ -256,7 +268,7 @@ public class EmpresaTest {
 		Empresa miEmpresa = new Empresa();
 
 		EmpleadeAbstracte miEmpleadePlantaTemporariaJornadaCompletaConParejaSinHijes = new Empleade(
-				"Juan De Los Palotes", Planta.TEMPORARIA, Jornada.COMPLETA, SIN_PAREJA, SIN_HIJES);
+				"Juan De Los Palotes", Planta.TEMPORARIA, Jornada.COMPLETA, SIN_PAREJA, SIN_HIJES, SIN_ANTIGUEDAD);
 		miEmpresa.contratar(miEmpleadePlantaTemporariaJornadaCompletaConParejaSinHijes);
 
 		// El Cálculo para Empleade Planta Temporaria Jornada Completa:
@@ -275,7 +287,7 @@ public class EmpresaTest {
 
 		Empresa miEmpresa = new Empresa();
 		EmpleadeAbstracte miEmpleadePlantaTemporariaJornadaCompletaConParejaSinHijes = new Empleade(
-				"Juan De Los Palotes", Planta.TEMPORARIA, Jornada.COMPLETA, CON_PAREJA, SIN_HIJES);
+				"Juan De Los Palotes", Planta.TEMPORARIA, Jornada.COMPLETA, CON_PAREJA, SIN_HIJES, SIN_ANTIGUEDAD);
 		miEmpresa.contratar(miEmpleadePlantaTemporariaJornadaCompletaConParejaSinHijes);
 
 		// El Cálculo para Empleade Planta Temporaria Jornada Completa:
@@ -286,6 +298,27 @@ public class EmpresaTest {
 		// En este caso, 1100 = 1000.0 + 100.0
 
 		assertEquals(1100, miEmpresa.obtTotalDeSueldos());
+	}
+
+	@Test
+	public void laEmpresaDebePoderObtenerElSueldoDeUnPlantaPermanenteTiempoCompletoConParejaSinHijesConAntiguedad1() {
+
+		Empresa miEmpresa = new Empresa();
+
+		EmpleadeAbstracte miEmpleadePlantaTemporariaJornadaCompletaConParejaSinHijesConAntiguedad1 = new Empleade(
+				"Juan De Los Palotes", Planta.PERMANENTE, Jornada.COMPLETA, CON_PAREJA, SIN_HIJES, ANTIGUEDAD_1);
+		miEmpresa.contratar(miEmpleadePlantaTemporariaJornadaCompletaConParejaSinHijesConAntiguedad1);
+
+		// El Cálculo para Empleade Planta Permanente Jornada Completa:
+		// Sueldo Básico + Salario Familiar + Antigüedad
+
+		// Sueldo Básico = 1000.0
+		// Salario Familar = 200.0 * hije + 100.0 si tiene pareja registrada
+		// Antigüedad: 100 * Año, max: 2000.
+		// Si A = 1,
+		// En este caso, 1200 = 1000.0 + 100.0 + (100 * 1)
+
+		assertEquals(1200, miEmpresa.obtTotalDeSueldos());
 	}
 
 }
