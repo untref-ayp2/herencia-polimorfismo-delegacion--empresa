@@ -471,4 +471,30 @@ public class EmpresaTest {
 		assertEquals(miEmpresa1.obtTotalDeSueldos(), miEmpresa2.obtTotalDeSueldos());
 	}
 
+	// Agregamos soporte para Jornada Parcial (por ahora, sin horas extra)
+	@Test
+	public void laEmpresaDebePoderObtenerElSueldoDeUnPlantaPermanenteTiempoParcialConParejaSinHijesConAntiguedad13SinHorasTrabajadas() {
+
+		Empresa miEmpresa = new Empresa();
+		EmpleadeAbstracte miEmpleadePlantaPermanenteTiempoParcialConParejaSinHijesConAntiguedad13SinHorasTrabajadas = new Empleade(
+				"Juanito Espuma", Planta.PERMANENTE, Jornada.PARCIAL, CON_PAREJA, SIN_HIJES, ANTIGUEDAD_13);
+		miEmpresa.contratar(miEmpleadePlantaPermanenteTiempoParcialConParejaSinHijesConAntiguedad13SinHorasTrabajadas);
+
+		// El Cálculo para Tiempo Parcial:
+		// Sueldo Básico' + Salario Familiar + Antigüedad
+		//
+		// Sueldo Básico' = min[1000, 1/3 *1000 + (horas_trabajadas * 10)]
+		// Salario Familar = 200.0 * hije + 100.0 si tiene pareja registrada
+		// Antigüedad: min [2000, 100 * Año)
+		// Valor de la Hora Trabajada: 10
+		// En nuestro caso,
+		// HE = 0;
+		// A = 13,
+		// SF = 100
+		//
+		// Luego,
+		// 1733.33 = 333.333 + 100 + (13* 100)
+		assertEquals(1733.3333333333333, miEmpresa.obtTotalDeSueldos());
+	}
+
 }

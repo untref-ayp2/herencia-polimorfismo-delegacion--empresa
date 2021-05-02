@@ -3,7 +3,6 @@ package ar.edu.untref.ayp2.polimorfismo.empresa;
 public abstract class EmpleadeAbstracte {
 
 	private static final double ASIGNACION_PAREJA = 100.0;
-	private static final double SALARIO_BASICO = 1000.0;
 	private static final double ASIGNACION_HIJO = 200.0;
 	private static final double ANTIGUEDAD_ANUAL = 100.0;
 	private static final double MAX_POR_ANTIGUEDAD = 2000.0;
@@ -39,11 +38,19 @@ public abstract class EmpleadeAbstracte {
 		return jornada;
 	}
 
-	public double obtSueldo() {
-		return SALARIO_BASICO + obtSalarioFamiliar() + Math.min(MAX_POR_ANTIGUEDAD, antiguedad * ANTIGUEDAD_ANUAL);
+	protected double obtSueldo() {
+		return obtSalarioBasico() + obtSalarioFamiliar() + obtAsigPorAntiguedad();
 	}
 
-	private double obtSalarioFamiliar() {
+	protected double obtSalarioBasico() {
+		return jornada.obtSalarioBasico();
+	}
+
+	protected double obtAsigPorAntiguedad() {
+		return Math.min(MAX_POR_ANTIGUEDAD, antiguedad * ANTIGUEDAD_ANUAL);
+	}
+
+	protected double obtSalarioFamiliar() {
 		return (ASIGNACION_HIJO * cantHijes) + (tienePareja ? ASIGNACION_PAREJA : 0.0);
 	}
 
