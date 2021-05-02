@@ -8,6 +8,19 @@ import org.junit.Test;
 
 public class EmpresaTest {
 
+	// Al predefinir estos valores booleanos, los nombres de los parámetros enviados
+	// al test son más legibles.
+	// Además, pueden cambiarse muy fácilmente luego, en caso de refactorizar.
+	private static final boolean SIN_PAREJA = false;
+	private static final boolean CON_PAREJA = true;
+
+	// Al predefinir algunos valores numéricos, es muy fácil cambiarles el valor
+	// (y/o nombre) para crear nuevos tests.
+	private static final int SIN_HIJES = 0;
+	private static final int UN_HIJE = 1;
+	private static final int DOS_HIJES = 2;
+	private static final int TRES_HIJES = 3;
+
 	@Test
 	public void empresaTest() {
 		assertTrue(true);
@@ -32,17 +45,8 @@ public class EmpresaTest {
 	public void deboPoderMostrarUnaEmpresaConUnEmpleadeSinCategoriaDePlantaPermanenteJornadaCompleta() {
 		Empresa miEmpresa = new Empresa();
 
-		// Al predefinir estos valores booleanos, los nombres de los parámetros enviados
-		// al test son más legibles.
-		// Además, pueden cambiarse muy fácilmente luego, en caso de refactorizar.
-		boolean conPareja = true;
-
-		// Al predefinir algunos valores numéricos, es muy fácil cambiarles el valor
-		// (y/o nombre) para crear nuevos tests.
-		int dosHijes = 2;
-
 		EmpleadeAbstracte miEmpleade = new Empleade("Juan De Los Palotes", Planta.PERMANENTE, Jornada.COMPLETA,
-				conPareja, dosHijes);
+				CON_PAREJA, DOS_HIJES);
 		miEmpresa.contratar(miEmpleade);
 		String mostrar = "Cantidad de Empleades: 1." + "\n"
 				+ "1. Juan De Los Palotes (Sin Categoría, Planta Permanente, Jornada Completa)";
@@ -55,16 +59,7 @@ public class EmpresaTest {
 	public void deboPoderMostrarUnaEmpresaConUnGerenteDePlantaPermanente() {
 		Empresa miEmpresa = new Empresa();
 
-		// Al predefinir estos valores booleanos, los nombres de los parámetros enviados
-		// al test son más legibles.
-		// Además, pueden cambiarse muy fácilmente luego, en caso de refactorizar.
-		boolean sinPareja = false;
-
-		// Al predefinir algunos valores numéricos, es muy fácil cambiarles el valor
-		// (y/o nombre) para crear nuevos tests.
-		int sinHijes = 0;
-
-		EmpleadeAbstracte miEmpleade = new Gerente("Ana De la Cumbre", sinPareja, sinHijes);
+		EmpleadeAbstracte miEmpleade = new Gerente("Ana De la Cumbre", SIN_PAREJA, SIN_HIJES);
 		miEmpresa.contratar(miEmpleade);
 		String mostrar = "Cantidad de Empleades: 1." + "\n" + "1. Ana De la Cumbre (Gerente, Planta Permanente)";
 		// System.out.println(miEmpresa.toString());
@@ -76,17 +71,8 @@ public class EmpresaTest {
 	public void deboPoderMostrarUnaEmpresaConUnEmpleadeSinCategoriaContratadoJornadaCompleta() {
 		Empresa miEmpresa = new Empresa();
 
-		// Al predefinir estos valores booleanos, los nombres de los parámetros enviados
-		// al test son más legibles.
-		// Además, pueden cambiarse muy fácilmente luego, en caso de refactorizar.
-		boolean sinPareja = false;
-
-		// Al predefinir algunos valores numéricos, es muy fácil cambiarles el valor
-		// (y/o nombre) para crear nuevos tests.
-		int dosHijes = 2;
-
 		EmpleadeAbstracte miEmpleade = new Empleade("Juan De Los Palotes", Planta.TEMPORARIA, Jornada.COMPLETA,
-				sinPareja, dosHijes);
+				SIN_PAREJA, DOS_HIJES);
 		miEmpresa.contratar(miEmpleade);
 		String mostrar = "Cantidad de Empleades: 1." + "\n"
 				+ "1. Juan De Los Palotes (Sin Categoría, Planta Temporaria, Jornada Completa)";
@@ -100,17 +86,8 @@ public class EmpresaTest {
 	public void deboPoderMostrarUnaEmpresaConUnEmpleadeSinCategoriaContratadoMediaJornada() {
 		Empresa miEmpresa = new Empresa();
 
-		// Al predefinir estos valores booleanos, los nombres de los parámetros enviados
-		// al test son más legibles.
-		// Además, pueden cambiarse muy fácilmente luego, en caso de refactorizar.
-		boolean sinPareja = false;
-
-		// Al predefinir algunos valores numéricos, es muy fácil cambiarles el valor
-		// (y/o nombre) para crear nuevos tests.
-		int dosHijes = 2;
-
 		EmpleadeAbstracte miEmpleade = new Empleade("Juan De Los Palotes", Planta.TEMPORARIA, Jornada.PARCIAL,
-				sinPareja, dosHijes);
+				SIN_PAREJA, DOS_HIJES);
 		miEmpresa.contratar(miEmpleade);
 		String mostrar = "Cantidad de Empleades: 1." + "\n"
 				+ "1. Juan De Los Palotes (Sin Categoría, Planta Temporaria, Media Jornada)";
@@ -124,17 +101,8 @@ public class EmpresaTest {
 	public void deboPoderMostrarUnaEmpresaConUnEmpleadeSinCategoriaDePlantaPermanenteMediaJornada() {
 		Empresa miEmpresa = new Empresa();
 
-		// Al predefinir estos valores booleanos, los nombres de los parámetros enviados
-		// al test son más legibles.
-		// Además, pueden cambiarse muy fácilmente luego, en caso de refactorizar.
-		boolean sinPareja = false;
-
-		// Al predefinir algunos valores numéricos, es muy fácil cambiarles el valor
-		// (y/o nombre) para crear nuevos tests.
-		int dosHijes = 2;
-
 		EmpleadeAbstracte miEmpleade = new Empleade("Juan De Los Palotes", Planta.PERMANENTE, Jornada.PARCIAL,
-				sinPareja, dosHijes);
+				SIN_PAREJA, DOS_HIJES);
 		miEmpresa.contratar(miEmpleade);
 		String mostrar = "Cantidad de Empleades: 1." + "\n"
 				+ "1. Juan De Los Palotes (Sin Categoría, Planta Permanente, Media Jornada)";
@@ -146,17 +114,8 @@ public class EmpresaTest {
 	@Test
 	public void categoriaDeEmpleadeSoloPuedeSerSinCantegoria() {
 
-		// Al predefinir estos valores booleanos, los nombres de los parámetros enviados
-		// al test son más legibles.
-		// Además, pueden cambiarse muy fácilmente luego, en caso de refactorizar.
-		boolean sinPareja = false;
-
-		// Al predefinir algunos valores numéricos, es muy fácil cambiarles el valor
-		// (y/o nombre) para crear nuevos tests.
-		int dosHijes = 2;
-
 		EmpleadeAbstracte empleadeValideSinCategoria = new Empleade("Juan De Los Palotes", Planta.PERMANENTE,
-				Jornada.COMPLETA, sinPareja, dosHijes);
+				Jornada.COMPLETA, SIN_PAREJA, DOS_HIJES);
 
 		assertEquals(Categoria.SIN_CATEGORIA, empleadeValideSinCategoria.obtCategoria());
 	}
@@ -165,16 +124,7 @@ public class EmpresaTest {
 	@Test
 	public void categoriaDeGerenteSoloPuedeSerGerente() {
 
-		// Al predefinir estos valores booleanos, los nombres de los parámetros enviados
-		// al test son más legibles.
-		// Además, pueden cambiarse muy fácilmente luego, en caso de refactorizar.
-		boolean sinPareja = false;
-
-		// Al predefinir algunos valores numéricos, es muy fácil cambiarles el valor
-		// (y/o nombre) para crear nuevos tests.
-		int sinHijes = 0;
-
-		EmpleadeAbstracte empleadeValideGerente = new Gerente("Ana De la Cumbre", sinPareja, sinHijes);
+		EmpleadeAbstracte empleadeValideGerente = new Gerente("Ana De la Cumbre", SIN_PAREJA, SIN_HIJES);
 
 		assertEquals(Categoria.GERENTE, empleadeValideGerente.obtCategoria());
 	}
@@ -183,16 +133,7 @@ public class EmpresaTest {
 	@Test
 	public void plantaDeGerenteSoloPuedeSerPermanente() {
 
-		// Al predefinir estos valores booleanos, los nombres de los parámetros enviados
-		// al test son más legibles.
-		// Además, pueden cambiarse muy fácilmente luego, en caso de refactorizar.
-		boolean conPareja = true;
-
-		// Al predefinir algunos valores numéricos, es muy fácil cambiarles el valor
-		// (y/o nombre) para crear nuevos tests.
-		int sinHijes = 0;
-
-		EmpleadeAbstracte empleadeValideGerente = new Gerente("Ana De la Cumbre", conPareja, sinHijes);
+		EmpleadeAbstracte empleadeValideGerente = new Gerente("Ana De la Cumbre", CON_PAREJA, SIN_HIJES);
 
 		assertEquals(Planta.PERMANENTE, empleadeValideGerente.obtPlanta());
 	}
@@ -201,19 +142,10 @@ public class EmpresaTest {
 	@Test
 	public void plantaDeEmpleadeSoloPuedeSerPermanenteOTemporaria() {
 
-		// Al predefinir estos valores booleanos, los nombres de los parámetros enviados
-		// al test son más legibles.
-		// Además, pueden cambiarse muy fácilmente luego, en caso de refactorizar.
-		boolean conPareja = true;
-
-		// Al predefinir algunos valores numéricos, es muy fácil cambiarles el valor
-		// (y/o nombre) para crear nuevos tests.
-		int dosHijes = 2;
-
 		EmpleadeAbstracte empleadeValideSinCategoriaPermanente = new Empleade("Juan De Los Palotes", Planta.PERMANENTE,
-				Jornada.COMPLETA, conPareja, dosHijes);
+				Jornada.COMPLETA, CON_PAREJA, DOS_HIJES);
 		EmpleadeAbstracte empleadeValideSinCategoriaTemporarie = new Empleade("Juan De Los Palotes", Planta.TEMPORARIA,
-				Jornada.COMPLETA, conPareja, dosHijes);
+				Jornada.COMPLETA, CON_PAREJA, DOS_HIJES);
 
 		// La siguiente línea da error de compilación
 		// assertEquals(Planta.OTRA, empleadeValideSinCategoriaTemporarie.obtPlanta());
@@ -227,19 +159,10 @@ public class EmpresaTest {
 	@Test
 	public void jornadaDeEmpleadePuedeSerSoloCompletaOParcial() {
 
-		// Al predefinir estos valores booleanos, los nombres de los parámetros enviados
-		// al test son más legibles.
-		// Además, pueden cambiarse muy fácilmente luego, en caso de refactorizar.
-		boolean sinPareja = false;
-
-		// Al predefinir algunos valores numéricos, es muy fácil cambiarles el valor
-		// (y/o nombre) para crear nuevos tests.
-		int dosHijes = 2;
-
 		EmpleadeAbstracte empleadeValideSinCategoriaPermanente = new Empleade("Juan De Los Palotes", Planta.PERMANENTE,
-				Jornada.COMPLETA, sinPareja, dosHijes);
+				Jornada.COMPLETA, SIN_PAREJA, DOS_HIJES);
 		EmpleadeAbstracte empleadeValideSinCategoriaTemporarie = new Empleade("Juan De Los Palotes", Planta.TEMPORARIA,
-				Jornada.PARCIAL, sinPareja, dosHijes);
+				Jornada.PARCIAL, SIN_PAREJA, DOS_HIJES);
 
 		// La siguiente línea da error de compilación
 		// assertEquals(Jornada.NI, empleadeValideSinCategoriaPermanente.obtJornada());
@@ -253,19 +176,8 @@ public class EmpresaTest {
 
 		Empresa miEmpresa = new Empresa();
 
-		// Al predefinir estos valores booleanos, los nombres de los parámetros enviados
-		// al test son más legibles.
-		// Además, pueden cambiarse muy fácilmente luego, en caso de refactorizar.
-		boolean conPareja = true;
-
-		// Al predefinir algunos valores numéricos, es muy fácil cambiarles el valor
-		// (y/o nombre) para crear nuevos tests.
-		int dosHijes = 2;
-
-		// Luego, simplemente leyendo esta línea tenemos una idea de exactamente qué
-		// estamos probando.
 		EmpleadeAbstracte miEmpleadePlantaTemporariaJornadaCompletaConParejaDosHijes = new Empleade(
-				"Juan De Los Palotes", Planta.TEMPORARIA, Jornada.COMPLETA, conPareja, dosHijes);
+				"Juan De Los Palotes", Planta.TEMPORARIA, Jornada.COMPLETA, CON_PAREJA, DOS_HIJES);
 		miEmpresa.contratar(miEmpleadePlantaTemporariaJornadaCompletaConParejaDosHijes);
 
 		// El Cálculo para Empleade Planta Temporaria Jornada Completa:
@@ -283,19 +195,8 @@ public class EmpresaTest {
 
 		Empresa miEmpresa = new Empresa();
 
-		// Al predefinir estos valores booleanos, los nombres de los parámetros enviados
-		// al test son más legibles.
-		// Además, pueden cambiarse muy fácilmente luego, en caso de refactorizar.
-		boolean sinPareja = false;
-
-		// Al predefinir algunos valores numéricos, es muy fácil cambiarles el valor
-		// (y/o nombre) para crear nuevos tests.
-		int unHije = 1;
-
-		// Luego, simplemente leyendo esta línea tenemos una idea de exactamente qué
-		// estamos probando.
 		EmpleadeAbstracte miEmpleadePlantaTemporariaJornadaCompletaConParejaUnHije = new Empleade("Juan De Los Palotes",
-				Planta.TEMPORARIA, Jornada.COMPLETA, sinPareja, unHije);
+				Planta.TEMPORARIA, Jornada.COMPLETA, SIN_PAREJA, UN_HIJE);
 		miEmpresa.contratar(miEmpleadePlantaTemporariaJornadaCompletaConParejaUnHije);
 
 		// El Cálculo para Empleade Planta Temporaria Jornada Completa:
@@ -314,19 +215,8 @@ public class EmpresaTest {
 
 		Empresa miEmpresa = new Empresa();
 
-		// Al predefinir estos valores booleanos, los nombres de los parámetros enviados
-		// al test son más legibles.
-		// Además, pueden cambiarse muy fácilmente luego, en caso de refactorizar.
-		boolean sinPareja = false;
-
-		// Al predefinir algunos valores numéricos, es muy fácil cambiarles el valor
-		// (y/o nombre) para crear nuevos tests.
-		int dosHijes = 2;
-
-		// Luego, simplemente leyendo esta línea tenemos una idea de exactamente qué
-		// estamos probando.
 		EmpleadeAbstracte miEmpleadePlantaTemporariaJornadaCompletaConParejaDosHijes = new Empleade(
-				"Juan De Los Palotes", Planta.TEMPORARIA, Jornada.COMPLETA, sinPareja, dosHijes);
+				"Juan De Los Palotes", Planta.TEMPORARIA, Jornada.COMPLETA, SIN_PAREJA, DOS_HIJES);
 		miEmpresa.contratar(miEmpleadePlantaTemporariaJornadaCompletaConParejaDosHijes);
 
 		// El Cálculo para Empleade Planta Temporaria Jornada Completa:
@@ -345,19 +235,8 @@ public class EmpresaTest {
 
 		Empresa miEmpresa = new Empresa();
 
-		// Al predefinir estos valores booleanos, los nombres de los parámetros enviados
-		// al test son más legibles.
-		// Además, pueden cambiarse muy fácilmente luego, en caso de refactorizar.
-		boolean sinPareja = false;
-
-		// Al predefinir algunos valores numéricos, es muy fácil cambiarles el valor
-		// (y/o nombre) para crear nuevos tests.
-		int tresHijes = 3;
-
-		// Luego, simplemente leyendo esta línea tenemos una idea de exactamente qué
-		// estamos probando.
 		EmpleadeAbstracte miEmpleadePlantaTemporariaJornadaCompletaConParejaTresHijes = new Empleade(
-				"Juan De Los Palotes", Planta.TEMPORARIA, Jornada.COMPLETA, sinPareja, tresHijes);
+				"Juan De Los Palotes", Planta.TEMPORARIA, Jornada.COMPLETA, SIN_PAREJA, TRES_HIJES);
 		miEmpresa.contratar(miEmpleadePlantaTemporariaJornadaCompletaConParejaTresHijes);
 
 		// El Cálculo para Empleade Planta Temporaria Jornada Completa:
@@ -376,19 +255,8 @@ public class EmpresaTest {
 
 		Empresa miEmpresa = new Empresa();
 
-		// Al predefinir estos valores booleanos, los nombres de los parámetros enviados
-		// al test son más legibles.
-		// Además, pueden cambiarse muy fácilmente luego, en caso de refactorizar.
-		boolean sinPareja = false;
-
-		// Al predefinir algunos valores numéricos, es muy fácil cambiarles el valor
-		// (y/o nombre) para crear nuevos tests.
-		int sinHijes = 0;
-
-		// Luego, simplemente leyendo esta línea tenemos una idea de exactamente qué
-		// estamos probando.
 		EmpleadeAbstracte miEmpleadePlantaTemporariaJornadaCompletaConParejaSinHijes = new Empleade(
-				"Juan De Los Palotes", Planta.TEMPORARIA, Jornada.COMPLETA, sinPareja, sinHijes);
+				"Juan De Los Palotes", Planta.TEMPORARIA, Jornada.COMPLETA, SIN_PAREJA, SIN_HIJES);
 		miEmpresa.contratar(miEmpleadePlantaTemporariaJornadaCompletaConParejaSinHijes);
 
 		// El Cálculo para Empleade Planta Temporaria Jornada Completa:
@@ -406,20 +274,8 @@ public class EmpresaTest {
 	public void laEmpresaDebePoderObtenerElSueldoDeUnPlantaTemporariaTiempoCompletoConParejaSinHijes() {
 
 		Empresa miEmpresa = new Empresa();
-
-		// Al predefinir estos valores booleanos, los nombres de los parámetros enviados
-		// al test son más legibles.
-		// Además, pueden cambiarse muy fácilmente luego, en caso de refactorizar.
-		boolean conPareja = true;
-
-		// Al predefinir algunos valores numéricos, es muy fácil cambiarles el valor
-		// (y/o nombre) para crear nuevos tests.
-		int sinHijes = 0;
-
-		// Luego, simplemente leyendo esta línea tenemos una idea de exactamente qué
-		// estamos probando.
 		EmpleadeAbstracte miEmpleadePlantaTemporariaJornadaCompletaConParejaSinHijes = new Empleade(
-				"Juan De Los Palotes", Planta.TEMPORARIA, Jornada.COMPLETA, conPareja, sinHijes);
+				"Juan De Los Palotes", Planta.TEMPORARIA, Jornada.COMPLETA, CON_PAREJA, SIN_HIJES);
 		miEmpresa.contratar(miEmpleadePlantaTemporariaJornadaCompletaConParejaSinHijes);
 
 		// El Cálculo para Empleade Planta Temporaria Jornada Completa:
