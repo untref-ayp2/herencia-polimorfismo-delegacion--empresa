@@ -2,8 +2,8 @@ package ar.edu.untref.ayp2.polimorfismo.empresa;
 
 public class Gerente extends EmpleadeAbstracte {
 
-	public Gerente(String nombre, boolean tienePareja, int cantHijes) {
-		super(nombre, Categoria.GERENTE, Planta.PERMANENTE, Jornada.COMPLETA, tienePareja, cantHijes);
+	public Gerente(String nombre, boolean tienePareja, int cantHijes, int antiguedad) {
+		super(nombre, Categoria.GERENTE, Planta.PERMANENTE, Jornada.COMPLETA, tienePareja, cantHijes, antiguedad);
 	}
 
 	@Override
