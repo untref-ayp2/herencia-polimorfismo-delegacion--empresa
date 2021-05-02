@@ -37,6 +37,11 @@ public class EmpresaTest {
 	// Este valor nos da un resultado igual al máximo computable por antigüedad.
 	private static final int ANTIGUEDAD_20 = 20;
 
+	// Este valor pasa el límite: el resultado de usarlo en nuestro cálculo
+	// debería ser igual al que surge de usar el valor anterior.
+	// Luego, es trivial transformar esta propiedad en un test.
+	private static final int ANTIGUEDAD_37 = 37;
+
 	@Test
 	public void empresaTest() {
 		assertTrue(true);
@@ -369,6 +374,31 @@ public class EmpresaTest {
 		// En este caso, 3100 = 1000.0 + 100.0 + (100 * 20)
 
 		assertEquals(3100, miEmpresa.obtTotalDeSueldos());
+	}
+
+	// Probando el máximo computable de antigüedad...
+	@Test
+	public void laEmpresaDebePoderObtenerElSueldoDeUnPlantaPermanenteTiempoCompletoConParejaSinHijesConAntiguedad37() {
+
+		Empresa miEmpresa1 = new Empresa();
+		EmpleadeAbstracte miEmpleadePlantaTemporariaJornadaCompletaConParejaSinHijesConAntiguedad20 = new Empleade(
+				"Juan De Los Palotes", Planta.PERMANENTE, Jornada.COMPLETA, CON_PAREJA, SIN_HIJES, ANTIGUEDAD_20);
+		miEmpresa1.contratar(miEmpleadePlantaTemporariaJornadaCompletaConParejaSinHijesConAntiguedad20);
+
+		Empresa miEmpresa2 = new Empresa();
+		EmpleadeAbstracte miEmpleadePlantaTemporariaJornadaCompletaConParejaSinHijesConAntiguedad37 = new Empleade(
+				"Juan De Los Palotes", Planta.PERMANENTE, Jornada.COMPLETA, CON_PAREJA, SIN_HIJES, ANTIGUEDAD_37);
+		miEmpresa2.contratar(miEmpleadePlantaTemporariaJornadaCompletaConParejaSinHijesConAntiguedad37);
+
+		// El Cálculo para Empleade Planta Permanente Jornada Completa:
+		// Sueldo Básico + Salario Familiar + Antigüedad
+
+		// Sueldo Básico = 1000.0
+		// Salario Familar = 200.0 * hije + 100.0 si tiene pareja registrada
+		// Antigüedad: 100 * Año, max: 2000.
+		// Si A > 20, el resultado debería ser igual a si A == 20.
+
+		assertEquals(miEmpresa1.obtTotalDeSueldos(), miEmpresa2.obtTotalDeSueldos());
 	}
 
 }

@@ -6,6 +6,7 @@ public abstract class EmpleadeAbstracte {
 	private static final double SALARIO_BASICO = 1000.0;
 	private static final double ASIGNACION_HIJO = 200.0;
 	private static final double ANTIGUEDAD_ANUAL = 100.0;
+	private static final double MAX_POR_ANTIGUEDAD = 2000.0;
 
 	protected String nombre;
 	protected Categoria categoria;
@@ -39,7 +40,7 @@ public abstract class EmpleadeAbstracte {
 	}
 
 	public double obtSueldo() {
-		return SALARIO_BASICO + obtSalarioFamiliar() + antiguedad * ANTIGUEDAD_ANUAL;
+		return SALARIO_BASICO + obtSalarioFamiliar() + Math.min(MAX_POR_ANTIGUEDAD, antiguedad * ANTIGUEDAD_ANUAL);
 	}
 
 	private double obtSalarioFamiliar() {
