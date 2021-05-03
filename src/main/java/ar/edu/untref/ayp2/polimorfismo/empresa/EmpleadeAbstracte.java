@@ -2,6 +2,7 @@ package ar.edu.untref.ayp2.polimorfismo.empresa;
 
 public abstract class EmpleadeAbstracte {
 
+	private static final double SALARIO_BASICO_NOMINAL = 1000.0;
 	private static final double ASIGNACION_PAREJA = 100.0;
 	private static final double ASIGNACION_HIJO = 200.0;
 	private static final double ANTIGUEDAD_ANUAL = 100.0;
@@ -43,7 +44,7 @@ public abstract class EmpleadeAbstracte {
 	}
 
 	protected double obtSalarioBasico() {
-		return jornada.obtSalarioBasico();
+		return jornada.calcularSalarioBasicoEfectivo(SALARIO_BASICO_NOMINAL);
 	}
 
 	protected double obtAsigPorAntiguedad() {
