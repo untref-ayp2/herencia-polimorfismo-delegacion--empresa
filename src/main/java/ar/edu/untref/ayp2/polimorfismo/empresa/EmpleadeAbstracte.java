@@ -7,6 +7,7 @@ public abstract class EmpleadeAbstracte {
 	private static final double ASIGNACION_HIJO = 200.0;
 	private static final double ANTIGUEDAD_ANUAL = 100.0;
 	private static final double MAX_POR_ANTIGUEDAD = 2000.0;
+	private static final double VALOR_HORA = 10.0;
 
 	protected String nombre;
 	protected Categoria categoria;
@@ -39,12 +40,19 @@ public abstract class EmpleadeAbstracte {
 		return jornada;
 	}
 
+	@Override
+	public String toString() {
+		String catPyJ = String.join(", ", categoria.toString(), planta.toString(), jornada.toString());
+		catPyJ = "(" + catPyJ + ")";
+		return String.join(" ", nombre, catPyJ);
+	}
+
 	protected double obtSueldo() {
 		return obtSalarioBasico() + obtSalarioFamiliar() + obtAsigPorAntiguedad();
 	}
 
 	protected double obtSalarioBasico() {
-		return jornada.calcularSalarioBasicoEfectivo(SALARIO_BASICO_NOMINAL);
+		return SALARIO_BASICO_NOMINAL;
 	}
 
 	protected double obtAsigPorAntiguedad() {
@@ -53,6 +61,10 @@ public abstract class EmpleadeAbstracte {
 
 	protected double obtSalarioFamiliar() {
 		return (ASIGNACION_HIJO * cantHijes) + (tienePareja ? ASIGNACION_PAREJA : 0.0);
+	}
+
+	protected double obtValorHora() {
+		return VALOR_HORA;
 	}
 
 }
