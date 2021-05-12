@@ -48,6 +48,12 @@ public class EmpresaTest {
 	private static final double SIN_HORAS_TRABAJADAS = 0.0;
 	private static final double CON_1_HORA_TRABAJADA = 1.0;
 
+	// Este valor es justo el límite para el máximo
+	private static final double CON_66PUNTO6666666666666_HORAS_TRABAJADAS = 66.6666666666666;
+
+	// Este valor es mayor al límite para el máximo
+	private static final double CON_67_HORAS_TRABAJADAS = 67.0;
+
 	@Test
 	public void empresaTest() {
 		assertTrue(true);
@@ -548,6 +554,73 @@ public class EmpresaTest {
 		// S = 343.333 + 100 + 1300
 		// S = 1743.333
 		assertEquals(1743.3333333333333, miEmpresa.obtTotalDeSueldos());
+	}
+
+	// Test de regresión para horas extra
+	@Test
+	public void laEmpresaDebePoderObtenerElSueldoDeUnPlantaPermanenteTiempoParcialConParejaSinHijesConAntiguedad13Con66Punto66HorasTrabajadas() {
+
+		Empresa miEmpresa = new Empresa();
+		EmpleadeAbstracte miEmpleadePlantaPermanenteTiempoParcialConParejaSinHijesConAntiguedad13Con1HoraTrabajada = new EmpleadePorHoras(
+				"Juanito Espuma", Planta.PERMANENTE, CON_PAREJA, SIN_HIJES, ANTIGUEDAD_13,
+				CON_66PUNTO6666666666666_HORAS_TRABAJADAS);
+		miEmpresa.contratar(miEmpleadePlantaPermanenteTiempoParcialConParejaSinHijesConAntiguedad13Con1HoraTrabajada);
+
+		// El Cálculo para Tiempo Parcial:
+		// Sueldo Básico' + Salario Familiar + Antigüedad
+		//
+		// Sueldo Básico' = min[SB, 1/3 *SB + (HT * H)]
+		// Salario Familar = 200.0 * hije + 100.0 si tiene pareja registrada
+		// Antigüedad: min [2000, AA * A)
+		// Asig. Antigüedad AA: 100
+		// Valor de la Hora Trabajada H: 10
+		// En nuestro caso,
+		// HT = 66.666; (cantidad de horas trabajadas)
+		// A = 13,
+		// SF = 100
+		//
+		// Luego,
+		// S = SB' + SF + A
+		// S = min(SB, 1/3 SB + HT*H) + SF + min(ANTIG_MAX, AA*A)
+		// S = min(1000, 1/3*1000 + 66.666*10) + 100 + min(2000, 100*13)
+		// S = min(1000, 333.333 + 666.66) + 100 + min(2000, 1300)
+		// S = min(1000, 1000) + 100 + min(2000, 1300)
+		// S = 1000 + 100 + 1300
+		// S = 2400.0
+		assertEquals(2400.0, miEmpresa.obtTotalDeSueldos(), 0.000001);
+	}
+
+	// Test de regresión para horas extra
+	@Test
+	public void laEmpresaDebePoderObtenerElSueldoDeUnPlantaPermanenteTiempoParcialConParejaSinHijesConAntiguedad13Con67HorasTrabajadas() {
+
+		Empresa miEmpresa = new Empresa();
+		EmpleadeAbstracte miEmpleadePlantaPermanenteTiempoParcialConParejaSinHijesConAntiguedad13Con1HoraTrabajada = new EmpleadePorHoras(
+				"Juanito Espuma", Planta.PERMANENTE, CON_PAREJA, SIN_HIJES, ANTIGUEDAD_13, CON_67_HORAS_TRABAJADAS);
+		miEmpresa.contratar(miEmpleadePlantaPermanenteTiempoParcialConParejaSinHijesConAntiguedad13Con1HoraTrabajada);
+
+		// El Cálculo para Tiempo Parcial:
+		// Sueldo Básico' + Salario Familiar + Antigüedad
+		//
+		// Sueldo Básico' = min[SB, 1/3 *SB + (HT * H)]
+		// Salario Familar = 200.0 * hije + 100.0 si tiene pareja registrada
+		// Antigüedad: min [2000, AA * A)
+		// Asig. Antigüedad AA: 100
+		// Valor de la Hora Trabajada H: 10
+		// En nuestro caso,
+		// HT = 66.666; (cantidad de horas trabajadas)
+		// A = 13,
+		// SF = 100
+		//
+		// Luego,
+		// S = SB' + SF + A
+		// S = min(SB, 1/3 SB + HT*H) + SF + min(ANTIG_MAX, AA*A)
+		// S = min(1000, 1/3*1000 + 67*10) + 100 + min(2000, 100*13)
+		// S = min(1000, 333.333 + 670) + 100 + min(2000, 1300)
+		// S = min(1000, 1003) + 100 + min(2000, 1300)
+		// S = 1000 + 100 + 1300
+		// S = 2400.0
+		assertEquals(2400.0, miEmpresa.obtTotalDeSueldos());
 	}
 
 }
