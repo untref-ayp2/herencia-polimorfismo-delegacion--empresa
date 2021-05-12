@@ -6,7 +6,7 @@ public class EmpleadePorHoras extends EmpleadeAbstracte {
 
 	public EmpleadePorHoras(String nombre, Planta planta, boolean tienePareja, int cantHijes, int antiguedad,
 			double horasTrabajadas) {
-		super(nombre, Categoria.SIN_CATEGORIA, planta, Jornada.PARCIAL, tienePareja, cantHijes, antiguedad);
+		super(nombre, Categoria.SIN_CATEGORIA, planta, Remuneracion.POR_HORAS, tienePareja, cantHijes, antiguedad);
 		this.horasTrabajadas = horasTrabajadas;
 	}
 

@@ -12,17 +12,17 @@ public abstract class EmpleadeAbstracte {
 	protected String nombre;
 	protected Categoria categoria;
 	protected Planta planta;
-	protected Jornada jornada;
+	protected Remuneracion remuneracion;
 	protected boolean tienePareja;
 	protected int cantHijes;
 	protected int antiguedad;
 
-	public EmpleadeAbstracte(String nombre, Categoria categoria, Planta planta, Jornada jornada, boolean tienePareja,
+	public EmpleadeAbstracte(String nombre, Categoria categoria, Planta planta, Remuneracion jornada, boolean tienePareja,
 			int cantHijes, int antiguedad) {
 		this.nombre = nombre;
 		this.categoria = categoria;
 		this.planta = planta;
-		this.jornada = jornada;
+		this.remuneracion = jornada;
 		this.tienePareja = tienePareja;
 		this.cantHijes = cantHijes;
 		this.antiguedad = antiguedad;
@@ -36,15 +36,15 @@ public abstract class EmpleadeAbstracte {
 		return planta;
 	}
 
-	public Jornada obtJornada() {
-		return jornada;
+	public Remuneracion obtRemuneracion() {
+		return remuneracion;
 	}
 
 	@Override
 	public String toString() {
-		String catPyJ = String.join(", ", categoria.toString(), planta.toString(), jornada.toString());
-		catPyJ = "(" + catPyJ + ")";
-		return String.join(" ", nombre, catPyJ);
+		String atributos = String.join(", ", categoria.toString(), planta.toString(), remuneracion.toString());
+		atributos = "(" + atributos + ")";
+		return String.join(" ", nombre, atributos);
 	}
 
 	protected double obtSueldo() {

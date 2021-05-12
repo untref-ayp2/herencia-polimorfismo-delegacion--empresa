@@ -1,11 +1,11 @@
 package ar.edu.untref.ayp2.polimorfismo.empresa;
 
-public enum Jornada {
-	COMPLETA("Jornada Completa"), PARCIAL("Media Jornada");
+public enum Remuneracion {
+	POR_MES("Por Mes"), POR_HORAS("Por Horas");
 
 	private String descripcion;
 
-	private Jornada(String descripcion) {
+	private Remuneracion(String descripcion) {
 		this.descripcion = descripcion;
 	}
 
